@@ -1,14 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEye,
+import { 
   faUsers,
+  faEye,
   faClock,
   faArrowTrendUp,
-  faGlobe,
-  faMobile,
-  faTablet,
-  faLaptop
+  faGlobe
 } from '@fortawesome/free-solid-svg-icons';
 import {
   Chart as ChartJS,

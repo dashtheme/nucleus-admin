@@ -5,7 +5,6 @@ import {
   faTrash, 
   faEdit, 
   faPlus,
-  faCheck,
   faSpinner
 } from '@fortawesome/free-solid-svg-icons';
 

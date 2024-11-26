@@ -4,8 +4,7 @@ import {
   faInfoCircle,
   faCheckCircle,
   faExclamationTriangle,
-  faTimesCircle,
-  faTimes
+  faTimesCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 const Alerts: React.FC = () => {

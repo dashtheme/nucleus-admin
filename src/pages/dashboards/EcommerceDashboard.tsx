@@ -1,43 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faShoppingCart,
+import { 
   faDollarSign,
-  faBoxOpen,
+  faShoppingCart,
   faUserPlus,
-  faTag,
-  faStar,
-  faShoppingBag,
-  faArrowUp,
-  faArrowDown
+  faBoxOpen,
+  faArrowUp
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-} from 'chart.js';
-import { Line, Bar, Doughnut } from 'react-chartjs-2';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-);
+import { Line, Doughnut } from 'react-chartjs-2';
 
 const EcommerceDashboard: React.FC = () => {
   // E-commerce Stats

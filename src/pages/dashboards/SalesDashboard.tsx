@@ -1,12 +1,11 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
+import { 
   faChartLine,
   faUsers,
   faHandshake,
   faPercent,
-  faUserTie,
-  faCalendarCheck
+  faUserTie
 } from '@fortawesome/free-solid-svg-icons';
 import {
   Chart as ChartJS,

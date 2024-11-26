@@ -6,8 +6,7 @@ import {
   faMoon, 
   faBars, 
   faGear, 
-  faRightFromBracket,
-  faCircleUser
+  faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';

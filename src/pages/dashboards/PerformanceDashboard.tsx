@@ -1,9 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faServer,
-  faMemory,
+import { 
   faMicrochip,
+  faMemory,
   faDatabase,
   faNetworkWired,
   faExclamationTriangle

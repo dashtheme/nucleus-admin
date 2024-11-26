@@ -4,10 +4,7 @@ import {
   faUser,
   faEnvelope,
   faPhone,
-  faLocationDot,
-  faCheck,
-  faStar,
-  faCircle
+  faLocationDot
 } from '@fortawesome/free-solid-svg-icons';
 
 const Lists: React.FC = () => {

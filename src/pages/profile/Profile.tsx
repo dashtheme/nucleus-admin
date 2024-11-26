@@ -8,7 +8,6 @@ import {
   faBriefcase,
   faEdit,
   faCamera,
-  faChartLine,
   faClock,
   faCalendarAlt,
   faCheckCircle,
