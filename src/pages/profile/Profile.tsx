@@ -25,7 +25,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 // Import images
-import { PROFILE_IMAGES } from '@/constants/images';
+import { PROFILE_IMAGES } from '../../constants/images';
 
 const Profile: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -167,16 +167,16 @@ const Profile: React.FC = () => {
             </p>
             <div className="profile-stats">
               <div className="profile-stat-item">
-                <span className="profile-stat-value">1.2k</span>
-                <span className="profile-stat-label">Followers</span>
+                <div className="profile-stat-value">1.2k</div>
+                <div className="profile-stat-label">Followers</div>
               </div>
               <div className="profile-stat-item">
-                <span className="profile-stat-value">427</span>
-                <span className="profile-stat-label">Following</span>
+                <div className="profile-stat-value">427</div>
+                <div className="profile-stat-label">Following</div>
               </div>
               <div className="profile-stat-item">
-                <span className="profile-stat-value">129</span>
-                <span className="profile-stat-label">Projects</span>
+                <div className="profile-stat-value">129</div>
+                <div className="profile-stat-label">Projects</div>
               </div>
             </div>
             <div className="profile-actions">
