@@ -15,7 +15,8 @@ import {
   faCode,
   faTasks,
   faChartLine,
-  faStar
+  faStar,
+  faGlobe
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
@@ -24,11 +25,19 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 
 // Import images
-import coverBg from '@/assets/images/cover-bg.jpg';
-import profileAvatar from '@/assets/images/profile-avatar.jpg';
+import { PROFILE_IMAGES } from '@/constants/images';
 
 const Profile: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
+
+  const coverStyle = {
+    backgroundImage: `url(${PROFILE_IMAGES.COVER})`,
+    width: '100%',
+    height: '320px',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
+  };
 
   const activities = [
     {
@@ -123,53 +132,91 @@ const Profile: React.FC = () => {
   return (
     <div className="profile-page">
       <div className="profile-header">
-        <div className="profile-cover" style={{
-          backgroundImage: `url(${coverBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}>
-          <div className="profile-cover-edit">
-            <button className="btn btn-light btn-sm">
-              <FontAwesomeIcon icon={faCamera} className="me-2" /> Change Cover
-            </button>
+        <div className="profile-cover" style={coverStyle}>
+          <div className="profile-cover-content">
+            <div className="profile-avatar">
+              <img 
+                src={PROFILE_IMAGES.AVATAR}
+                alt="Profile"
+                className="profile-image"
+                width={150}
+                height={150}
+              />
+              <div className="profile-avatar-edit">
+                <button className="btn btn-primary btn-sm rounded-circle">
+                  <FontAwesomeIcon icon={faCamera} />
+                </button>
+              </div>
+            </div>
+            <div className="profile-cover-edit">
+              <button className="btn btn-light btn-sm">
+                <FontAwesomeIcon icon={faCamera} className="me-2" /> Change Cover
+              </button>
+            </div>
           </div>
         </div>
         
         <div className="profile-user-info">
-          <div className="profile-avatar">
-            <img 
-              src={profileAvatar}
-              alt="Profile"
-              className="profile-image"
-            />
-            <div className="profile-avatar-edit">
-              <button className="btn btn-primary btn-sm rounded-circle">
-                <FontAwesomeIcon icon={faCamera} />
-              </button>
-            </div>
-          </div>
-          
           <div className="profile-details">
             <h2>
               John Doe
               <span className="badge bg-primary">Admin</span>
             </h2>
-            <p className="text-muted mb-3">Senior Full Stack Developer</p>
+            <p className="text-muted">
+              Senior Full Stack Developer
+            </p>
+            <div className="profile-stats">
+              <div className="profile-stat-item">
+                <span className="profile-stat-value">1.2k</span>
+                <span className="profile-stat-label">Followers</span>
+              </div>
+              <div className="profile-stat-item">
+                <span className="profile-stat-value">427</span>
+                <span className="profile-stat-label">Following</span>
+              </div>
+              <div className="profile-stat-item">
+                <span className="profile-stat-value">129</span>
+                <span className="profile-stat-label">Projects</span>
+              </div>
+            </div>
             <div className="profile-actions">
               <button className="btn btn-primary">
-                <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit Profile
+                <FontAwesomeIcon icon={faEdit} className="me-2" />
+                Edit Profile
               </button>
-              <div className="social-links">
-                <a href="#" className="btn btn-light">
-                  <FontAwesomeIcon icon={faGithub} />
-                </a>
-                <a href="#" className="btn btn-light">
-                  <FontAwesomeIcon icon={faTwitter} />
-                </a>
-                <a href="#" className="btn btn-light">
-                  <FontAwesomeIcon icon={faLinkedin} />
-                </a>
-              </div>
+              <button className="btn btn-outline-primary">
+                <FontAwesomeIcon icon={faEnvelope} className="me-2" />
+                Message
+              </button>
+            </div>
+            <div className="profile-social">
+              <a href="#" className="text-decoration-none">
+                <FontAwesomeIcon icon={faGithub} />
+              </a>
+              <a href="#" className="text-decoration-none">
+                <FontAwesomeIcon icon={faTwitter} />
+              </a>
+              <a href="#" className="text-decoration-none">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </a>
+              <a href="#" className="text-decoration-none">
+                <FontAwesomeIcon icon={faGlobe} />
+              </a>
+            </div>
+          </div>
+          
+          <div className="profile-meta">
+            <div className="d-flex align-items-center mb-3">
+              <FontAwesomeIcon icon={faMapMarkerAlt} className="fa-icon me-2" />
+              <span>San Francisco, CA</span>
+            </div>
+            <div className="d-flex align-items-center mb-3">
+              <FontAwesomeIcon icon={faEnvelope} className="fa-icon me-2" />
+              <span>john.doe@example.com</span>
+            </div>
+            <div className="d-flex align-items-center">
+              <FontAwesomeIcon icon={faBriefcase} className="fa-icon me-2" />
+              <span>Quantum Technologies Inc.</span>
             </div>
           </div>
         </div>
