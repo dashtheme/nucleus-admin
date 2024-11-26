@@ -15,7 +15,6 @@ import {
   faCode,
   faTasks,
   faChartLine,
-  faComments,
   faStar
 } from '@fortawesome/free-solid-svg-icons';
 import {

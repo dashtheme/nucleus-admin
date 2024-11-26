@@ -7,18 +7,18 @@ import {
   faComments,
   faCheck,
   faCircle,
-  faBoxOpen,
   faClock,
   faServer
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Line } from 'react-chartjs-2';
+import { Line, Doughnut } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend
@@ -29,6 +29,7 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend
@@ -169,6 +170,39 @@ const Dashboard = () => {
     },
   ];
 
+  // Traffic Sources Data
+  const trafficData = {
+    labels: ['Direct', 'Social', 'Referral', 'Organic'],
+    datasets: [
+      {
+        data: [35, 25, 20, 20],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.8)',
+          'rgba(255, 99, 132, 0.8)',
+          'rgba(75, 192, 192, 0.8)',
+          'rgba(255, 206, 86, 0.8)',
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 206, 86, 1)',
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const trafficOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom' as const,
+      },
+    },
+    cutout: '60%',
+  };
+
   return (
     <div className="dashboard">
       {/* Quick Stats Row */}
@@ -272,9 +306,7 @@ const Dashboard = () => {
               <h5 className="card-title mb-0">Traffic Sources</h5>
             </div>
             <div className="card-body">
-              <div className="chartjs-size-monitor">
-                <canvas id="trafficChart" width="200" height="200"></canvas>
-              </div>
+              <Doughnut data={trafficData} options={trafficOptions} />
             </div>
           </div>
         </div>
