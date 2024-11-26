@@ -1,5 +1,3 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faUsers,
   faChartLine,
@@ -8,6 +6,7 @@ import {
   faArrowDown,
   faComments
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,

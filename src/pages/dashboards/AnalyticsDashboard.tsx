@@ -117,7 +117,7 @@ const AnalyticsDashboard: React.FC = () => {
     ],
   };
 
-  const options = {
+  const chartOptions = {
     responsive: true,
     plugins: {
       legend: {
@@ -126,14 +126,26 @@ const AnalyticsDashboard: React.FC = () => {
     },
     scales: {
       y: {
+        type: 'linear' as const,
+        display: true,
+        position: 'left' as const,
         beginAtZero: true,
         grid: {
+          borderColor: 'rgb(234, 236, 244)',
           drawBorder: false,
+          borderDash: [2],
+          color: 'rgb(234, 236, 244)',
         },
       },
       x: {
+        type: 'category' as const,
+        display: true,
         grid: {
+          borderColor: 'rgb(234, 236, 244)',
           display: false,
+          drawBorder: true,
+          borderDash: [2],
+          color: 'rgb(234, 236, 244)',
         },
       },
     },
@@ -195,7 +207,7 @@ const AnalyticsDashboard: React.FC = () => {
               </div>
             </div>
             <div className="card-body">
-              <Line data={activityData} options={options} />
+              <Line data={activityData} options={chartOptions} />
             </div>
           </div>
 
@@ -219,7 +231,7 @@ const AnalyticsDashboard: React.FC = () => {
                   <small className="text-muted">Sessions by device type</small>
                 </div>
                 <div className="card-body">
-                  <Bar data={deviceData} options={options} />
+                  <Bar data={deviceData} options={chartOptions} />
                 </div>
               </div>
             </div>

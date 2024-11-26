@@ -149,7 +149,7 @@ const SalesDashboard: React.FC = () => {
     }
   ];
 
-  const options = {
+  const chartOptions = {
     responsive: true,
     plugins: {
       legend: {
@@ -158,14 +158,26 @@ const SalesDashboard: React.FC = () => {
     },
     scales: {
       y: {
+        type: 'linear' as const,
+        display: true,
+        position: 'left' as const,
         beginAtZero: true,
         grid: {
+          borderColor: 'rgb(234, 236, 244)',
           drawBorder: false,
+          borderDash: [2],
+          color: 'rgb(234, 236, 244)',
         },
       },
       x: {
+        type: 'category' as const,
+        display: true,
         grid: {
+          borderColor: 'rgb(234, 236, 244)',
           display: false,
+          drawBorder: true,
+          borderDash: [2],
+          color: 'rgb(234, 236, 244)',
         },
       },
     },
@@ -254,7 +266,7 @@ const SalesDashboard: React.FC = () => {
               <h5 className="card-title mb-0">Sales Forecast vs Actual</h5>
             </div>
             <div className="card-body">
-              <Line data={forecastData} options={options} />
+              <Line data={forecastData} options={chartOptions} />
             </div>
           </div>
         </div>
@@ -268,7 +280,7 @@ const SalesDashboard: React.FC = () => {
               <h5 className="card-title mb-0">Sales Pipeline</h5>
             </div>
             <div className="card-body">
-              <Bar data={pipelineData} options={options} />
+              <Bar data={pipelineData} options={chartOptions} />
             </div>
           </div>
         </div>

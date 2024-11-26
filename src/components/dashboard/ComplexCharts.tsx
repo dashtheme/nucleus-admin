@@ -80,14 +80,26 @@ const ComplexCharts: React.FC = () => {
     },
     scales: {
       y: {
+        type: 'linear' as const,
+        display: true,
+        position: 'left' as const,
         beginAtZero: true,
         grid: {
+          borderColor: 'rgb(234, 236, 244)',
           drawBorder: false,
+          borderDash: [2],
+          color: 'rgb(234, 236, 244)',
         },
       },
       x: {
+        type: 'category' as const,
+        display: true,
         grid: {
+          borderColor: 'rgb(234, 236, 244)',
           display: false,
+          drawBorder: true,
+          borderDash: [2],
+          color: 'rgb(234, 236, 244)',
         },
       },
     },

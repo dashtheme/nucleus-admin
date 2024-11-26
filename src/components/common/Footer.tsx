@@ -1,11 +1,10 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer bg-white border-top py-3 mt-auto">
+    <footer className="footer">
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-md-6">

@@ -135,7 +135,7 @@ const EcommerceDashboard: React.FC = () => {
     }
   ];
 
-  const options = {
+  const lineChartOptions = {
     responsive: true,
     plugins: {
       legend: {
@@ -144,15 +144,36 @@ const EcommerceDashboard: React.FC = () => {
     },
     scales: {
       y: {
+        type: 'linear' as const,
+        display: true,
+        position: 'left' as const,
         beginAtZero: true,
         grid: {
+          borderColor: 'rgb(234, 236, 244)',
           drawBorder: false,
+          borderDash: [2],
+          color: 'rgb(234, 236, 244)',
         },
       },
       x: {
+        type: 'category' as const,
+        display: true,
         grid: {
+          borderColor: 'rgb(234, 236, 244)',
           display: false,
+          drawBorder: true,
+          borderDash: [2],
+          color: 'rgb(234, 236, 244)',
         },
+      },
+    },
+  };
+
+  const doughnutChartOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top' as const,
       },
     },
   };
@@ -201,7 +222,7 @@ const EcommerceDashboard: React.FC = () => {
               </div>
             </div>
             <div className="card-body">
-              <Line data={salesData} options={options} />
+              <Line data={salesData} options={lineChartOptions} />
             </div>
           </div>
 
@@ -211,7 +232,7 @@ const EcommerceDashboard: React.FC = () => {
               <h5 className="card-title mb-0">Product Categories</h5>
             </div>
             <div className="card-body">
-              <Doughnut data={categoriesData} options={options} />
+              <Doughnut data={categoriesData} options={doughnutChartOptions} />
             </div>
           </div>
         </div>
