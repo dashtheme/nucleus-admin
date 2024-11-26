@@ -2,6 +2,10 @@
 
 A modern, responsive, and feature-rich dashboard theme built with React, TypeScript, and Vite. QuantumBoard provides a comprehensive set of components and features for building professional admin dashboards and web applications.
 
+![QuantumBoard Dashboard](https://quantumboard.dashtheme.com/screenshot.png)
+
+A sleek and modern admin dashboard built with React, TypeScript, and Vite. Features a clean design, dark mode support, and comprehensive components for building powerful admin interfaces.
+
 ## 🚀 Features
 
 - **Modern Tech Stack**
@@ -26,6 +30,16 @@ A modern, responsive, and feature-rich dashboard theme built with React, TypeScr
   - Organized project structure
   - React Query for efficient data fetching
 
+- 🎨 Modern and Clean Design
+- 🌙 Dark Mode Support
+- 📱 Fully Responsive
+- 🔒 Authentication Pages (Login/Register)
+- 📊 Interactive Dashboard
+- 📈 Charts and Analytics
+- 🎯 Performance Optimized
+- 🛠️ Built with TypeScript
+- ⚡ Powered by Vite
+
 ## 📦 Installation
 
 1. Clone the repository:
@@ -42,6 +56,11 @@ npm install
 3. Start the development server:
 ```bash
 npm run dev
+```
+
+4. Build for production:
+```bash
+npm run build
 ```
 
 ## 🛠️ Scripts
@@ -121,3 +140,9 @@ The project includes comprehensive TypeScript support with:
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+MIT License - feel free to use this template for your projects!
+
+## Support
+
+For support, email support@dashtheme.com or join our Discord community.
