@@ -4,7 +4,12 @@ import {
   faShoppingCart,
   faArrowUp,
   faArrowDown,
-  faComments
+  faComments,
+  faCheck,
+  faCircle,
+  faBoxOpen,
+  faClock,
+  faServer
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Line } from 'react-chartjs-2';
@@ -51,6 +56,118 @@ const Dashboard = () => {
       },
     },
   };
+
+  // Recent Activities Data
+  const activities = [
+    {
+      id: 1,
+      action: 'New order received',
+      time: '5 minutes ago',
+      type: 'order',
+    },
+    {
+      id: 2,
+      action: 'Server CPU usage high',
+      time: '15 minutes ago',
+      type: 'system',
+    },
+    {
+      id: 3,
+      action: 'New user registered',
+      time: '1 hour ago',
+      type: 'user',
+    },
+    {
+      id: 4,
+      action: 'Product stock low',
+      time: '2 hours ago',
+      type: 'inventory',
+    },
+  ];
+
+  // Top Products Data
+  const topProducts = [
+    {
+      id: 1,
+      name: 'Wireless Earbuds',
+      sales: 245,
+      revenue: '$12,450',
+      trend: 'up',
+    },
+    {
+      id: 2,
+      name: 'Smart Watch',
+      sales: 190,
+      revenue: '$9,500',
+      trend: 'up',
+    },
+    {
+      id: 3,
+      name: 'Laptop Stand',
+      sales: 175,
+      revenue: '$4,375',
+      trend: 'down',
+    },
+    {
+      id: 4,
+      name: 'USB-C Hub',
+      sales: 156,
+      revenue: '$3,900',
+      trend: 'up',
+    },
+  ];
+
+  // Tasks Data
+  const tasks = [
+    {
+      id: 1,
+      title: 'Review new orders',
+      status: 'pending',
+      priority: 'high',
+    },
+    {
+      id: 2,
+      title: 'Update inventory',
+      status: 'completed',
+      priority: 'medium',
+    },
+    {
+      id: 3,
+      title: 'Customer support meeting',
+      status: 'pending',
+      priority: 'high',
+    },
+    {
+      id: 4,
+      title: 'Check server logs',
+      status: 'pending',
+      priority: 'low',
+    },
+  ];
+
+  // System Health Data
+  const systemHealth = [
+    {
+      name: 'Server CPU',
+      value: 68,
+      status: 'warning',
+    },
+    {
+      name: 'Memory Usage',
+      value: 42,
+      status: 'success',
+    },
+    {
+      name: 'Storage',
+      value: 85,
+      status: 'danger',
+    },
+    {
+      name: 'Network',
+      value: 25,
+      status: 'success',
+    },
+  ];
 
   return (
     <div className="dashboard">
@@ -157,6 +274,140 @@ const Dashboard = () => {
             <div className="card-body">
               <div className="chartjs-size-monitor">
                 <canvas id="trafficChart" width="200" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Additional Widgets Row */}
+      <div className="row g-3">
+        {/* Recent Activities */}
+        <div className="col-12 col-xl-4">
+          <div className="card h-100">
+            <div className="card-header">
+              <h5 className="card-title mb-0">Recent Activities</h5>
+            </div>
+            <div className="card-body p-0">
+              <div className="list-group list-group-flush">
+                {activities.map((activity) => (
+                  <div key={activity.id} className="list-group-item">
+                    <div className="d-flex align-items-center">
+                      <div className="activity-icon me-3">
+                        <FontAwesomeIcon icon={faClock} className="text-primary" />
+                      </div>
+                      <div className="flex-grow-1">
+                        <div className="fw-bold">{activity.action}</div>
+                        <small className="text-muted">{activity.time}</small>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Top Products */}
+        <div className="col-12 col-xl-4">
+          <div className="card h-100">
+            <div className="card-header">
+              <h5 className="card-title mb-0">Top Products</h5>
+            </div>
+            <div className="card-body p-0">
+              <div className="list-group list-group-flush">
+                {topProducts.map((product) => (
+                  <div key={product.id} className="list-group-item">
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div>
+                        <h6 className="mb-0">{product.name}</h6>
+                        <small className="text-muted">{product.sales} sales</small>
+                      </div>
+                      <div className="text-end">
+                        <div>{product.revenue}</div>
+                        <small className={`text-${product.trend === 'up' ? 'success' : 'danger'}`}>
+                          <FontAwesomeIcon icon={product.trend === 'up' ? faArrowUp : faArrowDown} />
+                          {' '}
+                          {product.trend === 'up' ? '+' : '-'}2.5%
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tasks */}
+        <div className="col-12 col-xl-4">
+          <div className="card h-100">
+            <div className="card-header d-flex justify-content-between align-items-center">
+              <h5 className="card-title mb-0">Tasks</h5>
+              <button className="btn btn-primary btn-sm">Add Task</button>
+            </div>
+            <div className="card-body p-0">
+              <div className="list-group list-group-flush">
+                {tasks.map((task) => (
+                  <div key={task.id} className="list-group-item">
+                    <div className="d-flex align-items-center">
+                      <div className="me-3">
+                        <FontAwesomeIcon 
+                          icon={task.status === 'completed' ? faCheck : faCircle} 
+                          className={`text-${task.status === 'completed' ? 'success' : 'muted'}`}
+                        />
+                      </div>
+                      <div className="flex-grow-1">
+                        <div className={task.status === 'completed' ? 'text-muted text-decoration-line-through' : ''}>
+                          {task.title}
+                        </div>
+                        <small className={`badge bg-${task.priority === 'high' ? 'danger' : task.priority === 'medium' ? 'warning' : 'info'}`}>
+                          {task.priority}
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* System Health */}
+        <div className="col-12">
+          <div className="card">
+            <div className="card-header">
+              <h5 className="card-title mb-0">System Health</h5>
+            </div>
+            <div className="card-body">
+              <div className="row g-3">
+                {systemHealth.map((item) => (
+                  <div key={item.name} className="col-sm-6 col-lg-3">
+                    <div className="card bg-light">
+                      <div className="card-body p-3">
+                        <div className="d-flex justify-content-between align-items-center mb-2">
+                          <div className="stat-icon">
+                            <FontAwesomeIcon icon={faServer} className={`text-${item.status}`} />
+                          </div>
+                          <div className={`badge bg-${item.status}`}>
+                            {item.value}%
+                          </div>
+                        </div>
+                        <h6 className="mb-0">{item.name}</h6>
+                        <div className="progress mt-2" style={{ height: '4px' }}>
+                          <div 
+                            className={`progress-bar bg-${item.status}`} 
+                            role="progressbar" 
+                            style={{ width: `${item.value}%` }}
+                            aria-valuenow={item.value} 
+                            aria-valuemin={0} 
+                            aria-valuemax={100}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -70,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
                   style={{ width: '32px', height: '32px' }}
                 >
                   <img 
-                    src={`/public//random-person.jpeg`}
+                    src={`/public/random-person.jpeg`}
                     width={48}
                     height={48}
                     alt="John Doe"
@@ -89,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
                       style={{ width: '48px', height: '48px' }}
                     >
                       <img 
-                    src={`/public//random-person.jpeg`}
+                    src={`/public/random-person.jpeg`}
                     width={48}
                         height={48}
                         alt="John Doe"

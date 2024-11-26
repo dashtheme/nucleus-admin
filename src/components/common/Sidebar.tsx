@@ -103,7 +103,8 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
         activeLink: 'bg-primary-subtle text-primary fw-medium',
         hoverBg: 'hover-bg-light',
         border: 'border-light',
-        subMenu: 'bg-light bg-opacity-50'
+        subMenu: 'bg-light bg-opacity-50',
+        menuTitle: 'text-dark'
       };
     }
     return {
@@ -112,7 +113,8 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
       activeLink: 'bg-primary text-white fw-medium',
       hoverBg: 'hover-bg-dark',
       border: 'border-secondary',
-      subMenu: 'bg-dark'
+      subMenu: 'bg-dark',
+      menuTitle: 'text-white-50'
     };
   };
 
@@ -121,7 +123,12 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
   return (
     <aside className={`sidebar ${classes.sidebar} border-end`} style={{ width: '250px', minWidth: '250px' }}>
       <div className="sidebar-content h-100 d-flex flex-column">
-        <nav className="sidebar-nav flex-grow-1 overflow-auto py-2">
+        <nav className={`sidebar-nav py-4`}>
+          <div className="px-4 mb-3">
+            <h6 className={`text-uppercase fw-bold mb-4 ${classes.menuTitle}`}>
+              Main Menu
+            </h6>
+          </div>
           <ul className="nav flex-column">
             {menuItems.map((item, index) => (
               <li key={index} className="nav-item">
