@@ -1,0 +1,94 @@
+/* Dashboard Styles */
+.dashboard {
+  background-color: var(--body-bg);
+}
+
+/* Stats Cards */
+.icon-shape {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-shape svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Chat Styles */
+.chat-messages {
+  height: 300px;
+  overflow-y: auto;
+}
+
+.chat-message {
+  margin-bottom: 1rem;
+}
+
+.message-content {
+  border-radius: 1rem;
+  padding: 0.75rem 1rem;
+  max-width: 75%;
+}
+
+.message-time {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Transaction Styles */
+.icon-wrapper {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-success-light {
+  background-color: rgba(46, 204, 113, 0.1);
+}
+
+.bg-danger-light {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.transaction-details {
+  line-height: 1.2;
+}
+
+/* Chart Styles */
+.btn-group .btn-outline-secondary {
+  border-color: #dee2e6;
+}
+
+.btn-group .btn-outline-secondary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-group .btn-outline-secondary.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .icon-shape {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-shape svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .chat-messages {
+    height: 250px;
+  }
+}
