@@ -12,6 +12,10 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
     plugins: {
       'react-hooks': reactHooks,
@@ -23,6 +27,12 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      '@typescript-eslint/no-unused-vars': ['warn', {
+        'argsIgnorePattern': '^_',
+        'varsIgnorePattern': '^_',
+        'caughtErrorsIgnorePattern': '^_'
+      }],
+      'no-unused-vars': 'off', // Turn off the base rule as it can report incorrect errors
     },
   },
 )
