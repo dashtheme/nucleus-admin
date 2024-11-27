@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import { images } from '../../constants/images';
 
 interface HeaderProps {
   onToggleSidebar: () => void;
@@ -65,18 +66,15 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
                   <div className="text-dark fw-medium" style={{ lineHeight: '1.2' }}>John Doe</div>
                   <div className="text-muted small">Administrator</div>
                 </div>
-                <div 
-                  className="rounded-circle overflow-hidden d-flex align-items-center justify-content-center"
-                  style={{ width: '32px', height: '32px' }}
-                >
+                <Link to="/profile" className="d-flex align-items-center text-decoration-none">
                   <img 
-                    src={`/public/random-person.jpeg`}
-                    width={48}
-                    height={48}
-                    alt="John Doe"
-                    className="img-fluid"
+                    src={images.profileAvatar} 
+                    width="48" 
+                    height="48" 
+                    alt="John Doe" 
+                    className="img-fluid rounded-circle"
                   />
-                </div>
+                </Link>
               </button>
               <div 
                 className={`dropdown-menu dropdown-menu-end shadow border mt-2 ${showUserDropdown ? 'show' : ''}`}
@@ -89,8 +87,8 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
                       style={{ width: '48px', height: '48px' }}
                     >
                       <img 
-                    src={`/public/random-person.jpeg`}
-                    width={48}
+                        src={images.profileAvatar} 
+                        width={48}
                         height={48}
                         alt="John Doe"
                         className="img-fluid"

@@ -18,10 +18,7 @@ import {
   faTwitter,
   faLinkedin
 } from '@fortawesome/free-brands-svg-icons';
-
-// Import images
-import { PROFILE_IMAGES } from '../../constants/images';
-// Import styles
+import { images } from '../../constants/images';
 import '../../assets/styles/profile.css';
 
 const Profile: React.FC = () => {
@@ -36,39 +33,21 @@ const Profile: React.FC = () => {
   const projects = [
     {
       title: 'Analytics Dashboard',
-      description: 'Real-time data visualization platform',
+      description: 'A real-time analytics dashboard built with React and D3.js',
       progress: 75,
-      type: 'Development',
-      status: 'Active',
-      team: 4,
-      priority: 'High'
+      status: 'In Progress'
     },
     {
       title: 'Mobile App',
-      description: 'Cross-platform mobile application',
+      description: 'Cross-platform mobile application using React Native',
       progress: 90,
-      type: 'Mobile',
-      status: 'Active',
-      team: 3,
-      priority: 'Medium'
+      status: 'Review'
     },
     {
       title: 'API Gateway',
       description: 'Microservices API gateway implementation',
       progress: 60,
-      type: 'Backend',
-      status: 'In Progress',
-      team: 5,
-      priority: 'High'
-    },
-    {
-      title: 'CRM System',
-      description: 'Customer relationship management platform',
-      progress: 40,
-      type: 'Full Stack',
-      status: 'Planning',
-      team: 6,
-      priority: 'Medium'
+      status: 'Development'
     }
   ];
 
@@ -107,7 +86,7 @@ const Profile: React.FC = () => {
     <div className="profile-page">
       <div className="profile-header">
         <div className="profile-cover" style={{
-          backgroundImage: `url(${PROFILE_IMAGES.COVER})`,
+          backgroundImage: `url(${images.coverBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}>
@@ -124,7 +103,7 @@ const Profile: React.FC = () => {
         <div className="profile-user-info">
           <div className="profile-avatar">
             <img 
-              src={PROFILE_IMAGES.AVATAR} 
+              src={images.profileAvatar} 
               alt="Profile" 
               className="profile-image"
             />
@@ -180,6 +159,7 @@ const Profile: React.FC = () => {
                     <span>john.doe@example.com</span>
                   </div>
                 </div>
+
                 <div className="profile-info-item">
                   <FontAwesomeIcon icon={faPhone} className="text-muted" />
                   <div>
@@ -187,6 +167,7 @@ const Profile: React.FC = () => {
                     <span>+1 (555) 123-4567</span>
                   </div>
                 </div>
+
                 <div className="profile-info-item">
                   <FontAwesomeIcon icon={faMapMarkerAlt} className="text-muted" />
                   <div>
@@ -197,74 +178,49 @@ const Profile: React.FC = () => {
               </div>
 
               <div className="profile-social mt-4">
-                <h6 className="mb-3">Social Links</h6>
-                <div className="d-flex gap-2">
-                  <a href="#" className="btn btn-light">
-                    <FontAwesomeIcon icon={faGithub} />
-                  </a>
-                  <a href="#" className="btn btn-light">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </a>
-                  <a href="#" className="btn btn-light">
-                    <FontAwesomeIcon icon={faLinkedin} />
-                  </a>
-                </div>
+                <a href="#" className="btn btn-light me-2">
+                  <FontAwesomeIcon icon={faGithub} />
+                </a>
+                <a href="#" className="btn btn-light me-2">
+                  <FontAwesomeIcon icon={faTwitter} />
+                </a>
+                <a href="#" className="btn btn-light">
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         <div className="col-12 col-lg-8">
-          <div className="card">
+          <div className="card mb-4">
             <div className="card-body">
-              {/* Tabs Section */}
-              <ul className="profile-tabs">
-                {['overview', 'projects', 'activity'].map((tab) => (
-                  <li
-                    key={tab}
-                    className={`profile-tab ${activeTab === tab ? 'active' : ''}`}
-                    onClick={() => setActiveTab(tab)}
+              <ul className="nav nav-tabs">
+                <li className="nav-item">
+                  <button 
+                    className={`nav-link ${activeTab === 'overview' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('overview')}
                   >
-                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                  </li>
-                ))}
+                    Overview
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button 
+                    className={`nav-link ${activeTab === 'projects' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('projects')}
+                  >
+                    Projects
+                  </button>
+                </li>
               </ul>
 
-              {/* Tab Content */}
-              <div className="profile-tab-content">
+              <div className="tab-content mt-4">
                 {activeTab === 'overview' && (
-                  <div className="profile-overview">
-                    <h5 className="mb-4">Recent Projects</h5>
-                    <div className="row g-4">
-                      {projects.slice(0, 3).map((project, index) => (
-                        <div key={index} className="col-12 col-md-6 col-xl-4">
-                          <div className="profile-project-card">
-                            <h6 className="mb-2">{project.title}</h6>
-                            <p className="text-muted small mb-3">{project.description}</p>
-                            <div className="d-flex justify-content-between align-items-center mb-3">
-                              <span className={`badge bg-${project.priority.toLowerCase()}`}>
-                                {project.priority}
-                              </span>
-                              <small className="text-muted">{project.status}</small>
-                            </div>
-                            <div className="progress" style={{ height: '4px' }}>
-                              <div 
-                                className="progress-bar" 
-                                style={{ width: `${project.progress}%` }}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {activeTab === 'activity' && (
-                  <div className="profile-activity">
+                  <div>
+                    <h5 className="mb-4">Recent Activity</h5>
                     {activities.map((activity, index) => (
-                      <div key={index} className="profile-activity-item">
-                        <div className={`activity-icon bg-${activity.type}`}>
+                      <div key={index} className={`activity-item ${activity.type}`}>
+                        <div className="activity-icon">
                           <FontAwesomeIcon icon={activity.icon} />
                         </div>
                         <div className="activity-content">
@@ -281,51 +237,30 @@ const Profile: React.FC = () => {
                 )}
 
                 {activeTab === 'projects' && (
-                  <div className="profile-projects">
-                    <div className="table-responsive">
-                      <table className="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>Project</th>
-                            <th>Type</th>
-                            <th>Status</th>
-                            <th>Progress</th>
-                            <th>Team</th>
-                            <th>Priority</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {projects.map((project, index) => (
-                            <tr key={index}>
-                              <td>
-                                <h6 className="mb-1">{project.title}</h6>
-                                <small className="text-muted">{project.description}</small>
-                              </td>
-                              <td>{project.type}</td>
-                              <td>
-                                <span className={`badge bg-${project.status.toLowerCase()}-subtle text-${project.status.toLowerCase()}`}>
-                                  {project.status}
-                                </span>
-                              </td>
-                              <td>
-                                <div className="progress" style={{ height: '4px' }}>
-                                  <div 
-                                    className="progress-bar" 
-                                    style={{ width: `${project.progress}%` }}
-                                  />
-                                </div>
-                              </td>
-                              <td>{project.team} members</td>
-                              <td>
-                                <span className={`badge bg-${project.priority.toLowerCase()}`}>
-                                  {project.priority}
-                                </span>
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
+                  <div>
+                    <h5 className="mb-4">Current Projects</h5>
+                    {projects.map((project, index) => (
+                      <div key={index} className="project-card">
+                        <div className="d-flex justify-content-between align-items-center mb-2">
+                          <h6 className="mb-0">{project.title}</h6>
+                          <span className={`badge bg-${project.status === 'In Progress' ? 'warning' : 
+                            project.status === 'Review' ? 'info' : 'primary'}`}>
+                            {project.status}
+                          </span>
+                        </div>
+                        <p className="text-muted small mb-3">{project.description}</p>
+                        <div className="progress" style={{ height: '6px' }}>
+                          <div 
+                            className="progress-bar" 
+                            role="progressbar" 
+                            style={{ width: `${project.progress}%` }}
+                            aria-valuenow={project.progress} 
+                            aria-valuemin={0} 
+                            aria-valuemax={100}
+                          />
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>
