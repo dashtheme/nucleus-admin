@@ -6,6 +6,10 @@ A modern, responsive, and feature-rich dashboard theme built with React, TypeScr
 
 A sleek and modern admin dashboard built with React, TypeScript, and Vite. Features a clean design, dark mode support, and comprehensive components for building powerful admin interfaces.
 
+## 🔗 Demo
+
+Check out the live demo: [QuantumBoard Demo](https://quantumboard.dashtheme.com/)
+
 ## 🚀 Features
 
 - **Modern Tech Stack**
