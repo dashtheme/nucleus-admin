@@ -49,10 +49,10 @@ const EcommerceDashboard: React.FC = () => {
       {
         label: 'Sales',
         data: [12500, 18900, 15600, 22300, 19800, 24500],
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: 'var(--primary)',
         tension: 0.4,
         fill: true,
-        backgroundColor: 'rgba(75, 192, 192, 0.1)',
+        backgroundColor: 'rgba(255, 159, 67, 0.2)',
       }
     ],
   };

@@ -9,6 +9,7 @@ import {
   faShieldAlt 
 } from '@fortawesome/free-solid-svg-icons';
 import { useAuth } from '../../contexts/AuthContext';
+import '../../styles/theme.scss';
 
 const Register: React.FC = () => {
   const { register, isAuthenticated } = useAuth();
@@ -92,13 +93,13 @@ const Register: React.FC = () => {
   return (
     <div className="min-vh-100 d-flex">
       {/* Left side - Gradient Background */}
-      <div className="d-none d-lg-flex col-lg-6 position-relative" style={{
-        background: 'linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%)'
+      <div className="col-12 col-lg-6 bg-primary d-none d-lg-flex flex-column" style={{
+        background: 'linear-gradient(135deg, #ff9f43 0%, #ff9a9e 100%)'
       }}>
         <div className="position-absolute w-100 h-100 opacity-10"></div>
         <div className="position-relative d-flex flex-column align-items-center justify-content-center p-5 text-white w-100">
           <div className="text-center" style={{ maxWidth: '32rem' }}>
-            <h2 className="display-4 fw-bold mb-4">Join QuantumBoard</h2>
+            <h2 className="display-4 fw-bold mb-4">Join Nucleus Admin</h2>
             <p className="fs-4 text-white-50">
               Create your account and start exploring our powerful dashboard tools
             </p>

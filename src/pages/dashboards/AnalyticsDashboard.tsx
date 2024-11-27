@@ -43,28 +43,28 @@ const AnalyticsDashboard: React.FC = () => {
       value: '2.4M',
       increase: '+12.5%',
       icon: faEye,
-      color: 'info'
+      color: '#ff9f43'
     },
     {
       title: 'Active Users',
       value: '45.2K',
       increase: '+8.1%',
       icon: faUsers,
-      color: 'success'
+      color: '#ff9a9e'
     },
     {
       title: 'Avg. Session',
       value: '4m 23s',
       increase: '+3.2%',
       icon: faClock,
-      color: 'info'
+      color: '#ff9f43'
     },
     {
       title: 'Bounce Rate',
       value: '32.1%',
       increase: '-5.4%',
       icon: faArrowTrendUp,
-      color: 'warning'
+      color: '#ff9a9e'
     }
   ];
 
@@ -75,10 +75,10 @@ const AnalyticsDashboard: React.FC = () => {
       {
         label: 'Active Users',
         data: [1200, 1900, 3000, 3500, 2500, 1800],
-        borderColor: 'rgb(75, 192, 192)',
+        borderColor: '#ff9f43',
         tension: 0.4,
         fill: true,
-        backgroundColor: 'rgba(75, 192, 192, 0.1)',
+        backgroundColor: 'rgba(255, 159, 67, 0.1)',
       }
     ],
   };
@@ -90,12 +90,12 @@ const AnalyticsDashboard: React.FC = () => {
       {
         data: [35, 25, 15, 12, 8, 5],
         backgroundColor: [
-          'rgba(75, 192, 192, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(255, 206, 86, 0.8)',
-          'rgba(255, 99, 132, 0.8)',
-          'rgba(153, 102, 255, 0.8)',
-          'rgba(255, 159, 64, 0.8)',
+          '#ff9f43',
+          '#ff9a9e',
+          'rgba(255, 159, 67, 0.8)',
+          'rgba(255, 154, 158, 0.8)',
+          'rgba(255, 159, 67, 0.6)',
+          'rgba(255, 154, 158, 0.6)',
         ],
       }
     ],
@@ -109,9 +109,9 @@ const AnalyticsDashboard: React.FC = () => {
         label: 'Sessions by Device',
         data: [5200, 3800, 1000],
         backgroundColor: [
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(75, 192, 192, 0.8)',
-          'rgba(255, 206, 86, 0.8)',
+          '#ff9f43',
+          '#ff9a9e',
+          'rgba(255, 159, 67, 0.6)',
         ],
       }
     ],
@@ -168,18 +168,36 @@ const AnalyticsDashboard: React.FC = () => {
           <div className="row g-3">
             {stats.map((stat, index) => (
               <div key={index} className="col-12">
-                <div className={`card bg-${stat.color} bg-opacity-10 border-0 h-100`}>
+                <div className="card border-0 h-100" style={{
+                  background: `linear-gradient(135deg, ${stat.color}15, ${stat.color}25)`,
+                  borderRadius: '12px',
+                }}>
                   <div className="card-body">
                     <div className="d-flex flex-column">
                       <div className="d-flex justify-content-between align-items-center mb-3">
-                        <div className={`icon-shape rounded-circle bg-${stat.color} bg-opacity-25 p-3`}>
-                          <FontAwesomeIcon icon={stat.icon} className={`text-${stat.color}`} />
+                        <div style={{
+                          background: `linear-gradient(135deg, ${stat.color}, ${stat.color}dd)`,
+                          borderRadius: '50%',
+                          padding: '12px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          width: '45px',
+                          height: '45px'
+                        }}>
+                          <FontAwesomeIcon icon={stat.icon} style={{ color: 'white' }} />
                         </div>
-                        <span className={`badge bg-${stat.color} bg-opacity-25 text-${stat.color}`}>
+                        <span style={{
+                          background: `${stat.color}20`,
+                          color: stat.color,
+                          padding: '4px 12px',
+                          borderRadius: '20px',
+                          fontSize: '0.875rem'
+                        }}>
                           {stat.increase}
                         </span>
                       </div>
-                      <h3 className="mb-1 fw-bold">{stat.value}</h3>
+                      <h3 className="mb-1 fw-bold" style={{ color: stat.color }}>{stat.value}</h3>
                       <span className="text-muted small">{stat.title}</span>
                     </div>
                   </div>
@@ -192,17 +210,29 @@ const AnalyticsDashboard: React.FC = () => {
         {/* Main Content - Right Side */}
         <div className="col-12 col-lg-9">
           {/* User Activity Card */}
-          <div className="card mb-3">
+          <div className="card mb-3" style={{ borderRadius: '12px', border: 'none', boxShadow: '0 0 20px rgba(0,0,0,0.05)' }}>
             <div className="card-header border-bottom-0 bg-transparent pt-4 px-4">
               <div className="d-flex justify-content-between align-items-center">
                 <div>
-                  <h5 className="mb-0">User Activity</h5>
+                  <h5 className="mb-0" style={{ color: '#ff9f43' }}>User Activity</h5>
                   <small className="text-muted">Real-time user activity tracking</small>
                 </div>
                 <div className="btn-group">
-                  <button className="btn btn-sm btn-outline-secondary">Today</button>
-                  <button className="btn btn-sm btn-outline-secondary active">Week</button>
-                  <button className="btn btn-sm btn-outline-secondary">Month</button>
+                  <button className="btn btn-sm" style={{ 
+                    border: '1px solid #ff9f43',
+                    color: '#ff9f43',
+                    borderRadius: '20px 0 0 20px'
+                  }}>Today</button>
+                  <button className="btn btn-sm" style={{ 
+                    background: '#ff9f43',
+                    border: '1px solid #ff9f43',
+                    color: 'white'
+                  }}>Week</button>
+                  <button className="btn btn-sm" style={{ 
+                    border: '1px solid #ff9f43',
+                    color: '#ff9f43',
+                    borderRadius: '0 20px 20px 0'
+                  }}>Month</button>
                 </div>
               </div>
             </div>
@@ -214,9 +244,9 @@ const AnalyticsDashboard: React.FC = () => {
           {/* Traffic Sources and Device Usage */}
           <div className="row g-3 mb-3">
             <div className="col-12 col-md-6">
-              <div className="card h-100">
+              <div className="card h-100" style={{ borderRadius: '12px', border: 'none', boxShadow: '0 0 20px rgba(0,0,0,0.05)' }}>
                 <div className="card-header border-bottom-0 bg-transparent pt-4 px-4">
-                  <h5 className="mb-0">Traffic Sources</h5>
+                  <h5 className="mb-0" style={{ color: '#ff9f43' }}>Traffic Sources</h5>
                   <small className="text-muted">Distribution of traffic channels</small>
                 </div>
                 <div className="card-body">
@@ -225,9 +255,9 @@ const AnalyticsDashboard: React.FC = () => {
               </div>
             </div>
             <div className="col-12 col-md-6">
-              <div className="card h-100">
+              <div className="card h-100" style={{ borderRadius: '12px', border: 'none', boxShadow: '0 0 20px rgba(0,0,0,0.05)' }}>
                 <div className="card-header border-bottom-0 bg-transparent pt-4 px-4">
-                  <h5 className="mb-0">Device Usage</h5>
+                  <h5 className="mb-0" style={{ color: '#ff9f43' }}>Device Usage</h5>
                   <small className="text-muted">Sessions by device type</small>
                 </div>
                 <div className="card-body">
@@ -238,19 +268,19 @@ const AnalyticsDashboard: React.FC = () => {
           </div>
 
           {/* Popular Pages Card */}
-          <div className="card">
+          <div className="card" style={{ borderRadius: '12px', border: 'none', boxShadow: '0 0 20px rgba(0,0,0,0.05)' }}>
             <div className="card-header border-bottom-0 bg-transparent pt-4 px-4">
-              <h5 className="mb-0">Popular Pages</h5>
+              <h5 className="mb-0" style={{ color: '#ff9f43' }}>Popular Pages</h5>
               <small className="text-muted">Most visited pages this month</small>
             </div>
             <div className="card-body px-4">
               <div className="table-responsive">
                 <table className="table table-borderless align-middle">
-                  <thead className="text-muted small">
+                  <thead>
                     <tr>
-                      <th>PAGE</th>
-                      <th>VIEWS</th>
-                      <th>GROWTH</th>
+                      <th style={{ color: '#ff9f43', fontSize: '0.875rem' }}>PAGE</th>
+                      <th style={{ color: '#ff9f43', fontSize: '0.875rem' }}>VIEWS</th>
+                      <th style={{ color: '#ff9f43', fontSize: '0.875rem' }}>GROWTH</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -258,16 +288,29 @@ const AnalyticsDashboard: React.FC = () => {
                       <tr key={index}>
                         <td>
                           <div className="d-flex align-items-center">
-                            <div className={`icon-shape bg-light rounded p-2 me-3`}>
-                              <FontAwesomeIcon icon={faGlobe} className="text-muted" />
+                            <div style={{
+                              background: 'linear-gradient(135deg, #ff9f4315, #ff9a9e15)',
+                              borderRadius: '8px',
+                              padding: '10px',
+                              marginRight: '12px'
+                            }}>
+                              <FontAwesomeIcon icon={faGlobe} style={{ color: '#ff9f43' }} />
                             </div>
                             <span className="fw-medium">{page.path}</span>
                           </div>
                         </td>
                         <td className="fw-bold">{page.views}</td>
                         <td>
-                          <span className="badge bg-success-subtle text-success">
-                            <FontAwesomeIcon icon={faArrowTrendUp} className="me-1" />
+                          <span style={{
+                            background: '#ff9f4315',
+                            color: '#ff9f43',
+                            padding: '4px 12px',
+                            borderRadius: '20px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px'
+                          }}>
+                            <FontAwesomeIcon icon={faArrowTrendUp} />
                             {page.increase}
                           </span>
                         </td>

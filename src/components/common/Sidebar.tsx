@@ -82,7 +82,8 @@ const menuItems: MenuItem[] = [
         subItems: [
           { title: 'Basic', path: '/components/buttons/basic', icon: faCircle },
           { title: 'Group', path: '/components/buttons/group', icon: faCircle },
-          { title: 'Dropdown', path: '/components/buttons/dropdown', icon: faCircle }
+          { title: 'Dropdown', path: '/components/buttons/dropdown', icon: faCircle },
+          { title: 'Toolbar', path: '/components/buttons/toolbar', icon: faCircle }
         ]
       },
       { title: 'Cards', path: '/components/cards', icon: faSquare },
@@ -100,11 +101,17 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
 
   const sidebarStyles = {
     sidebar: {
-      width: '250px',
-      minWidth: '250px',
-      height: '100%',
-      backgroundColor: theme === 'dark' ? '#1a1f36' : '#ffffff',
-      color: theme === 'dark' ? '#ffffff' : '#1a1f36',
+      width: '280px',
+      height: '100vh',
+      position: 'fixed' as const,
+      left: 0,
+      top: 0,
+      paddingTop: '1rem',
+      background: 'linear-gradient(135deg, #ff9f43, #ff9a9e)',
+      color: 'white',
+      transition: 'all 0.3s ease',
+      overflowY: 'auto' as const,
+      zIndex: 1000,
     },
     menuItem: {
       cursor: 'pointer',
@@ -112,27 +119,33 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
     },
     sidebarLink: {
       padding: '0.75rem 1rem',
-      color: theme === 'dark' ? '#a3a3a3' : '#6c757d',
+      color: 'rgba(255, 255, 255, 0.8)',
       textDecoration: 'none',
       display: 'flex',
       alignItems: 'center',
       transition: 'all 0.3s ease',
+      margin: '0.25rem 0.75rem',
+      borderRadius: '8px',
       '&:hover': {
-        color: theme === 'dark' ? '#ffffff' : '#000000',
-        backgroundColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
+        color: '#ffffff',
+        backgroundColor: 'rgba(255, 255, 255, 0.15)',
+        transform: 'translateX(5px)',
       },
     },
     active: {
-      color: theme === 'dark' ? '#ffffff' : '#000000',
-      backgroundColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)',
+      color: '#ffffff',
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      fontWeight: 500,
     },
     submenu: {
       overflow: 'hidden',
       transition: 'all 0.3s ease',
+      marginLeft: '0.75rem',
     },
     icon: {
       width: '1.25rem',
       marginRight: '1rem',
+      opacity: 0.9,
     },
     chevron: {
       transition: 'transform 0.3s ease',
@@ -142,11 +155,12 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
     },
     sectionHeader: {
       padding: '0.75rem 1rem',
-      color: theme === 'dark' ? '#ffffff' : '#1a1f36',
+      color: '#ffffff',
       fontWeight: 600,
       fontSize: '0.875rem',
       textTransform: 'uppercase' as const,
       letterSpacing: '0.03em',
+      opacity: 0.9,
     }
   };
 
@@ -178,9 +192,11 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
             style={{
               ...sidebarStyles.sidebarLink,
               ...(isActive(item.path) ? sidebarStyles.active : {}),
-              paddingLeft: '1.25rem',
+              paddingLeft: `${level * 0.75 + 1}rem`,
               fontSize: '0.9rem',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              textTransform: 'none',
+              backgroundColor: isActive(item.path) ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
             }}
           >
             <FontAwesomeIcon 
@@ -188,7 +204,7 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
               style={{
                 ...sidebarStyles.icon,
                 fontSize: '0.9rem',
-                opacity: 0.8,
+                opacity: isActive(item.path) ? 1 : 0.8,
               }} 
               className="me-3" 
             />
@@ -198,13 +214,21 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
           <div
             style={{
               ...sidebarStyles.sidebarLink,
-              paddingLeft: '1.25rem',
+              ...(isActive(item.path) ? sidebarStyles.active : {}),
+              paddingLeft: `${level * 0.75 + 1}rem`,
               fontSize: '0.9rem',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              textTransform: 'none',
+              backgroundColor: isActive(item.path) ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
             }}
           >
             <FontAwesomeIcon 
               icon={item.icon} 
+              style={{
+                ...sidebarStyles.icon,
+                fontSize: '0.9rem',
+                opacity: isActive(item.path) ? 1 : 0.8,
+              }} 
               className="me-3" 
             />
             <span>{item.title}</span>
@@ -228,7 +252,13 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
     if (level === 0) {
       return (
         <div key={item.title}>
-          <div style={sidebarStyles.sectionHeader}>
+          <div style={{
+            ...sidebarStyles.sectionHeader,
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            margin: '0.5rem 0.75rem',
+            borderRadius: '8px',
+            fontSize: '0.8rem',
+          }}>
             {item.title}
           </div>
           <div style={sidebarStyles.submenu}>
@@ -247,10 +277,11 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
           style={{
             ...sidebarStyles.sidebarLink,
             ...(active ? sidebarStyles.active : {}),
-            paddingLeft: `${level * 1.25 + 1}rem`,
+            paddingLeft: `${level * 0.75 + 1}rem`,
             fontSize: '0.9rem',
             textDecoration: 'none',
-            textTransform: 'uppercase' as const
+            textTransform: 'none',
+            backgroundColor: active ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
           }}
         >
           <FontAwesomeIcon 
@@ -258,7 +289,7 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
             style={{
               ...sidebarStyles.icon,
               fontSize: '0.9rem',
-              opacity: 0.8,
+              opacity: active ? 1 : 0.8,
             }} 
             className="me-3" 
           />
@@ -274,10 +305,11 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
           style={{
             ...sidebarStyles.sidebarLink,
             ...(active ? sidebarStyles.active : {}),
-            paddingLeft: `${level * 1.25 + 1}rem`,
+            paddingLeft: `${level * 0.75 + 1}rem`,
             fontSize: '0.9rem',
             cursor: 'pointer',
-            textTransform: 'uppercase' as const
+            textTransform: 'none',
+            backgroundColor: active ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
           }}
           onClick={() => toggleExpand(item.title)}
         >
@@ -286,7 +318,7 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
             style={{
               ...sidebarStyles.icon,
               fontSize: '0.9rem',
-              opacity: 0.8,
+              opacity: active ? 1 : 0.8,
             }} 
             className="me-3" 
           />
@@ -298,6 +330,8 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
                 ...sidebarStyles.chevron,
                 ...(isExpanded ? sidebarStyles.chevronRotated : {}),
                 fontSize: '0.8rem',
+                marginLeft: 'auto',
+                opacity: 0.8,
               }}
               className="ms-auto"
             />

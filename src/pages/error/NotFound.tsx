@@ -17,7 +17,7 @@ const NotFound: React.FC = () => {
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2rem',
-    background: 'linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%)',
+    background: 'linear-gradient(135deg, #ff9a9e 0%, #ff9f43 100%)',
   };
 
   const contentStyle: React.CSSProperties = {

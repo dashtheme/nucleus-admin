@@ -2,6 +2,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave, faUndo } from '@fortawesome/free-solid-svg-icons';
+import '../../styles/theme.scss';
 
 const validationSchema = Yup.object().shape({
   firstName: Yup.string()

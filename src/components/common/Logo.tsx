@@ -17,18 +17,18 @@ const Logo: React.FC<LogoProps> = ({ collapsed = false }) => {
         style={{
           width: '32px',
           height: '32px',
-          background: 'linear-gradient(135deg, #0ea5e9 0%, #10b981 100%)',
+          background: 'linear-gradient(135deg, #ff9f43 0%, #ff9a9e 100%)',
           borderRadius: '8px',
           color: 'white',
           fontSize: collapsed ? '1rem' : '1.25rem',
           fontWeight: 'bold'
         }}
       >
-        Q
+        N
       </div>
       {!collapsed && (
         <span className="fw-bold text-dark" style={{ fontSize: '1.25rem' }}>
-          Quantum<span style={{ color: '#0ea5e9' }}>Board</span>
+          Nucleus<span style={{ color: '#ff9f43' }}>Admin</span>
         </span>
       )}
     </Link>

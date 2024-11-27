@@ -40,24 +40,35 @@ const MainLayout: React.FC = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
+  const closeSidebar = () => {
+    if (window.innerWidth < 768) {
+      setSidebarOpen(false);
+    }
+  };
+
+  const isMobile = window.innerWidth < 768;
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100vh' }}>
+    <div style={{ 
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      display: 'flex', 
+      flexDirection: 'column', 
+      overflow: 'hidden' 
+    }}>
       <Header onToggleSidebar={toggleSidebar} />
-      <div style={{ display: 'flex', flex: 1, minHeight: 0, width: '100%', position: 'relative' }}>
-        <div style={{ 
-          position: window.innerWidth < 768 ? 'absolute' : 'relative',
-          height: '100%',
-          transform: sidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
-          transition: 'transform 0.3s ease-in-out',
-          zIndex: 1000,
-          boxShadow: window.innerWidth < 768 && sidebarOpen ? '0 0 15px rgba(0,0,0,0.1)' : 'none'
-        }}>
-          <Sidebar theme='light' />
-        </div>
-        
-        {/* Overlay for mobile */}
-        {window.innerWidth < 768 && sidebarOpen && (
+      <div style={{ 
+        display: 'flex', 
+        flex: 1,
+        overflow: 'hidden',
+        position: 'relative'
+      }}>
+        {isMobile && sidebarOpen && (
           <div 
+            onClick={closeSidebar}
             style={{
               position: 'fixed',
               top: 0,
@@ -67,43 +78,55 @@ const MainLayout: React.FC = () => {
               backgroundColor: 'rgba(0,0,0,0.5)',
               zIndex: 999,
             }}
-            onClick={() => setSidebarOpen(false)}
           />
         )}
-
-        <div style={{ 
-          flex: 1, 
-          overflowY: 'auto', 
-          display: 'flex', 
-          flexDirection: 'column',
-          width: '100%',
-        }}>
-          <div style={{ flex: 1, padding: '1.5rem', width: '100%' }}>
-            <Routes>
-              {/* Dashboard Routes */}
-              <Route path="/" element={<Navigate to="/dashboard/main" replace />} />
-              <Route path="/dashboard/main" element={<Dashboard />} />
-              <Route path="/dashboard/analytics" element={<AnalyticsDashboard />} />
-              <Route path="/dashboard/ecommerce" element={<EcommerceDashboard />} />
-              <Route path="/dashboard/performance" element={<PerformanceDashboard />} />
-              <Route path="/dashboard/sales" element={<SalesDashboard />} />
-
-              {/* Component Routes */}
-              <Route path="/components/*" element={<ComponentsLayout />} />
-
-              {/* Other Routes */}
-              <Route path="/users" element={<UserList />} />
-              <Route path="/forms" element={<Forms />} />
-              <Route path="/tables" element={<Tables />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/profile" element={<Profile />} />
-
-              {/* 404 Page */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
-          <Footer />
+        <div 
+          className={`sidebar-container ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}
+          style={{ 
+            width: '280px',
+            flexShrink: 0,
+            zIndex: 1000,
+            position: isMobile ? 'fixed' : 'relative',
+            top: 0,
+            height: '100%',
+            overflow: 'hidden'
+          }}
+        >
+          <Sidebar />
         </div>
+        <main 
+          onClick={closeSidebar}
+          style={{ 
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            overflow: 'auto',
+            backgroundColor: '#f4f6f9',
+            zIndex: 1,
+            marginLeft: !isMobile && sidebarOpen ? '280px' : 0,
+            transition: 'margin-left 0.3s ease-in-out',
+            padding: '1.5rem'
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Navigate to="/dashboard/main" replace />} />
+            <Route path="/dashboard/main" element={<Dashboard />} />
+            <Route path="/dashboard/analytics" element={<AnalyticsDashboard />} />
+            <Route path="/dashboard/ecommerce" element={<EcommerceDashboard />} />
+            <Route path="/dashboard/performance" element={<PerformanceDashboard />} />
+            <Route path="/dashboard/sales" element={<SalesDashboard />} />
+            <Route path="/components/*" element={<ComponentsLayout />} />
+            <Route path="/users" element={<UserList />} />
+            <Route path="/forms" element={<Forms />} />
+            <Route path="/tables" element={<Tables />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </main>
       </div>
     </div>
   );

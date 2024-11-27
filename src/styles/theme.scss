@@ -1,0 +1,42 @@
+// Define theme colors
+$primary-color: #ff9f43;
+$secondary-color: #ff9a9e;
+$light-background: #f8f9fa;
+$dark-text: #333;
+
+// Override Bootstrap primary color
+$text-primary: $primary-color;
+
+// Gradient mixin
+@mixin gradient-bg($start-color, $end-color) {
+  background: linear-gradient(135deg, $start-color 0%, $end-color 100%);
+}
+
+// SVG Icon Styles
+svg {
+  fill: $primary-color;
+}
+
+// Card styles
+.card {
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  &-header {
+    background: $light-background;
+    color: $dark-text;
+    border-bottom: 1px solid #ddd;
+  }
+  &-body {
+    padding: 1rem;
+  }
+}
+
+// Button styles
+.btn {
+  &-theme {
+    @include gradient-bg($primary-color, $secondary-color);
+    color: white;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}

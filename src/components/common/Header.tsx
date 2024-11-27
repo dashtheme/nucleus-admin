@@ -8,7 +8,6 @@ import {
   faGear, 
   faRightFromBracket
 } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 import Logo from './Logo';
 import { images } from '../../constants/images';
 
@@ -66,7 +65,9 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
                   <div className="text-dark fw-medium" style={{ lineHeight: '1.2' }}>John Doe</div>
                   <div className="text-muted small">Administrator</div>
                 </div>
-                <Link to="/profile" className="d-flex align-items-center text-decoration-none">
+                <div 
+                  className="d-flex align-items-center"
+                >
                   <img 
                     src={images.profileAvatar} 
                     width="48" 
@@ -74,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
                     alt="John Doe" 
                     className="img-fluid rounded-circle"
                   />
-                </Link>
+                </div>
               </button>
               <div 
                 className={`dropdown-menu dropdown-menu-end shadow border mt-2 ${showUserDropdown ? 'show' : ''}`}
@@ -101,19 +102,37 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
                   </div>
                 </div>
                 <div className="py-2">
-                  <Link to="/profile" className="dropdown-item px-4 py-2">
+                  <div 
+                    className="dropdown-item px-4 py-2" 
+                    onClick={() => {
+                      // Potential future navigation or action
+                      setShowUserDropdown(false);
+                    }}
+                  >
                     <FontAwesomeIcon icon={faUser} className="me-2 text-muted" />
                     Profile
-                  </Link>
-                  <Link to="/settings" className="dropdown-item px-4 py-2">
+                  </div>
+                  <div 
+                    className="dropdown-item px-4 py-2"
+                    onClick={() => {
+                      // Potential future navigation or action
+                      setShowUserDropdown(false);
+                    }}
+                  >
                     <FontAwesomeIcon icon={faGear} className="me-2 text-muted" />
                     Settings
-                  </Link>
+                  </div>
                   <div className="dropdown-divider"></div>
-                  <Link to="/logout" className="dropdown-item px-4 py-2 text-danger">
+                  <div 
+                    className="dropdown-item px-4 py-2 text-danger"
+                    onClick={() => {
+                      // Potential future logout action
+                      setShowUserDropdown(false);
+                    }}
+                  >
                     <FontAwesomeIcon icon={faRightFromBracket} className="me-2" />
                     Logout
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>

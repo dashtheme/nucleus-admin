@@ -8,6 +8,7 @@ import {
   faPalette,
   faSave,
 } from '@fortawesome/free-solid-svg-icons';
+import '../../styles/theme.scss';
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState('profile');

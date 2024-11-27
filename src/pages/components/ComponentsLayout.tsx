@@ -1,6 +1,10 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Buttons from './samples/Buttons';
+import '../../styles/theme.scss';
+import BasicButtons from './buttons/BasicButtons';
+import ButtonGroups from './buttons/ButtonGroups';
+import DropdownButtons from './buttons/DropdownButtons';
+import ToolbarButtons from './buttons/ToolbarButtons';
 import Cards from './samples/Cards';
 import Lists from './samples/Lists';
 import Tables from '../../pages/tables/Tables';
@@ -12,7 +16,10 @@ import Charts from './samples/Charts';
 const ComponentsLayout: React.FC = () => {
   return (
     <Routes>
-      <Route path="buttons" element={<Buttons />} />
+      <Route path="buttons/basic" element={<BasicButtons />} />
+      <Route path="buttons/group" element={<ButtonGroups />} />
+      <Route path="buttons/dropdown" element={<DropdownButtons />} />
+      <Route path="buttons/toolbar" element={<ToolbarButtons />} />
       <Route path="cards" element={<Cards />} />
       <Route path="lists" element={<Lists />} />
       <Route path="tables" element={<Tables />} />
@@ -20,7 +27,7 @@ const ComponentsLayout: React.FC = () => {
       <Route path="spinners" element={<Spinners />} />
       <Route path="modals" element={<Modals />} />
       <Route path="charts" element={<Charts />} />
-      <Route path="" element={<Navigate to="buttons" replace />} />
+      <Route path="" element={<Navigate to="buttons/basic" replace />} />
     </Routes>
   );
 };

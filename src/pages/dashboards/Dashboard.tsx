@@ -23,6 +23,7 @@ import {
   Tooltip,
   Legend
 } from 'chart.js';
+import '../../styles/gradients.css';
 
 ChartJS.register(
   CategoryScale,
@@ -42,9 +43,10 @@ const Dashboard = () => {
       {
         label: 'Sales',
         data: [65, 59, 80, 81, 56, 55],
-        fill: false,
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1,
+        fill: true,
+        borderColor: '#ff9f43',
+        backgroundColor: 'rgba(255, 159, 67, 0.2)',
+        tension: 0.4,
       },
     ],
   };
@@ -54,6 +56,19 @@ const Dashboard = () => {
     plugins: {
       legend: {
         position: 'top' as const,
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          color: 'rgba(255, 159, 67, 0.2)',
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
       },
     },
   };
@@ -177,16 +192,16 @@ const Dashboard = () => {
       {
         data: [35, 25, 20, 20],
         backgroundColor: [
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(255, 99, 132, 0.8)',
-          'rgba(75, 192, 192, 0.8)',
-          'rgba(255, 206, 86, 0.8)',
+          '#ff9f43',
+          '#ff9a9e',
+          'rgba(255, 159, 67, 0.8)',
+          'rgba(255, 154, 158, 0.8)',
         ],
         borderColor: [
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 99, 132, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(255, 206, 86, 1)',
+          '#ff9f43',
+          '#ff9a9e',
+          'rgba(255, 159, 67, 1)',
+          'rgba(255, 154, 158, 1)',
         ],
         borderWidth: 1,
       },
@@ -208,7 +223,11 @@ const Dashboard = () => {
       {/* Quick Stats Row */}
       <div className="row g-3 mb-4">
         <div className="col-xl-3 col-md-6">
-          <div className="card stat-card primary-gradient">
+          <div className="card border-0 h-100" style={{
+            background: 'linear-gradient(135deg, #ff9f43 0%, #ff9a9e 100%)',
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
             <div className="card-body">
               <div className="d-flex justify-content-between align-items-center">
                 <div>
@@ -219,14 +238,18 @@ const Dashboard = () => {
                   </small>
                 </div>
                 <div className="stat-icon">
-                  <FontAwesomeIcon icon={faUsers} />
+                  <FontAwesomeIcon icon={faUsers} style={{ color: 'white' }} />
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="col-xl-3 col-md-6">
-          <div className="card stat-card success-gradient">
+          <div className="card border-0 h-100" style={{
+            background: 'linear-gradient(135deg, #ff9f43 0%, #ff9a9e 100%)',
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
             <div className="card-body">
               <div className="d-flex justify-content-between align-items-center">
                 <div>
@@ -237,14 +260,18 @@ const Dashboard = () => {
                   </small>
                 </div>
                 <div className="stat-icon">
-                  <FontAwesomeIcon icon={faChartLine} />
+                  <FontAwesomeIcon icon={faChartLine} style={{ color: 'white' }} />
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="col-xl-3 col-md-6">
-          <div className="card stat-card warning-gradient">
+          <div className="card border-0 h-100" style={{
+            background: 'linear-gradient(135deg, #ff9f43 0%, #ff9a9e 100%)',
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
             <div className="card-body">
               <div className="d-flex justify-content-between align-items-center">
                 <div>
@@ -255,14 +282,18 @@ const Dashboard = () => {
                   </small>
                 </div>
                 <div className="stat-icon">
-                  <FontAwesomeIcon icon={faShoppingCart} />
+                  <FontAwesomeIcon icon={faShoppingCart} style={{ color: 'white' }} />
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="col-xl-3 col-md-6">
-          <div className="card stat-card info-gradient">
+          <div className="card border-0 h-100" style={{
+            background: 'linear-gradient(135deg, #ff9f43 0%, #ff9a9e 100%)',
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
             <div className="card-body">
               <div className="d-flex justify-content-between align-items-center">
                 <div>
@@ -273,7 +304,7 @@ const Dashboard = () => {
                   </small>
                 </div>
                 <div className="stat-icon">
-                  <FontAwesomeIcon icon={faComments} />
+                  <FontAwesomeIcon icon={faComments} style={{ color: 'white' }} />
                 </div>
               </div>
             </div>
@@ -284,8 +315,15 @@ const Dashboard = () => {
       {/* Main Charts Row */}
       <div className="row g-3 mb-4">
         <div className="col-xl-8">
-          <div className="card h-100">
-            <div className="card-header d-flex justify-content-between align-items-center">
+          <div className="card h-100" style={{
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
+            <div className="card-header d-flex justify-content-between align-items-center" style={{
+              background: '#f8f9fa',
+              color: '#333',
+              borderBottom: '1px solid #ddd',
+            }}>
               <h5 className="card-title mb-0">Revenue Overview</h5>
               <div className="dropdown">
                 <select className="form-select form-select-sm">
@@ -301,8 +339,15 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="col-xl-4">
-          <div className="card h-100">
-            <div className="card-header">
+          <div className="card h-100" style={{
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
+            <div className="card-header" style={{
+              background: '#f8f9fa',
+              color: '#333',
+              borderBottom: '1px solid #ddd',
+            }}>
               <h5 className="card-title mb-0">Traffic Sources</h5>
             </div>
             <div className="card-body">
@@ -316,8 +361,15 @@ const Dashboard = () => {
       <div className="row g-3">
         {/* Recent Activities */}
         <div className="col-12 col-xl-4">
-          <div className="card h-100">
-            <div className="card-header">
+          <div className="card h-100" style={{
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
+            <div className="card-header" style={{
+              background: '#f8f9fa',
+              color: '#333',
+              borderBottom: '1px solid #ddd',
+            }}>
               <h5 className="card-title mb-0">Recent Activities</h5>
             </div>
             <div className="card-body p-0">
@@ -342,8 +394,15 @@ const Dashboard = () => {
 
         {/* Top Products */}
         <div className="col-12 col-xl-4">
-          <div className="card h-100">
-            <div className="card-header">
+          <div className="card h-100" style={{
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
+            <div className="card-header" style={{
+              background: '#f8f9fa',
+              color: '#333',
+              borderBottom: '1px solid #ddd',
+            }}>
               <h5 className="card-title mb-0">Top Products</h5>
             </div>
             <div className="card-body p-0">
@@ -373,10 +432,22 @@ const Dashboard = () => {
 
         {/* Tasks */}
         <div className="col-12 col-xl-4">
-          <div className="card h-100">
-            <div className="card-header d-flex justify-content-between align-items-center">
+          <div className="card h-100" style={{
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
+            <div className="card-header d-flex justify-content-between align-items-center" style={{
+              background: '#f8f9fa',
+              color: '#333',
+              borderBottom: '1px solid #ddd',
+            }}>
               <h5 className="card-title mb-0">Tasks</h5>
-              <button className="btn btn-primary btn-sm">Add Task</button>
+              <button className="btn btn-sm" style={{
+                background: '#ff9f43',
+                color: 'white',
+                border: 'none',
+                boxShadow: '0 0 10px rgba(0,0,0,0.1)',
+              }}>Add Task</button>
             </div>
             <div className="card-body p-0">
               <div className="list-group list-group-flush">
@@ -407,8 +478,15 @@ const Dashboard = () => {
 
         {/* System Health */}
         <div className="col-12">
-          <div className="card">
-            <div className="card-header">
+          <div className="card" style={{
+            borderRadius: '12px',
+            boxShadow: '0 0 20px rgba(0,0,0,0.05)',
+          }}>
+            <div className="card-header" style={{
+              background: '#f8f9fa',
+              color: '#333',
+              borderBottom: '1px solid #ddd',
+            }}>
               <h5 className="card-title mb-0">System Health</h5>
             </div>
             <div className="card-body">

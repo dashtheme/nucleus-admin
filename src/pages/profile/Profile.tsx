@@ -11,7 +11,8 @@ import {
   faClock,
   faCheckCircle,
   faExclamationCircle,
-  faTasks
+  faTasks,
+  faArrowLeft
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
@@ -20,9 +21,12 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { images } from '../../constants/images';
 import '../../assets/styles/profile.css';
+import '../../styles/theme.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Profile: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
+  const navigate = useNavigate();
 
   const stats = [
     { title: 'Projects', value: '25', icon: faBriefcase },
@@ -93,7 +97,7 @@ const Profile: React.FC = () => {
           <div className="profile-cover-content">
             <div className="profile-cover-edit">
               <button className="btn">
-                <FontAwesomeIcon icon={faCamera} className="me-2" />
+                <FontAwesomeIcon icon={faCamera} className="me-2 text-secondary" />
                 Change Cover
               </button>
             </div>
@@ -107,16 +111,16 @@ const Profile: React.FC = () => {
               alt="Profile" 
               className="profile-image"
             />
-            <button className="btn btn-sm btn-light profile-avatar-edit">
-              <FontAwesomeIcon icon={faCamera} />
+            <button className="profile-avatar-edit btn btn-sm btn-light">
+              <FontAwesomeIcon icon={faCamera} className="text-secondary" />
             </button>
           </div>
 
-          <div className="profile-info flex-grow-1">
-            <div className="d-flex justify-content-between align-items-center mb-3">
+          <div className="profile-info">
+            <div className="d-flex">
               <div>
                 <h3 className="mb-1">John Doe</h3>
-                <p className="text-muted mb-0">Senior Software Engineer</p>
+                <p className="text-muted mb-2">Senior Software Engineer</p>
               </div>
               <button className="btn btn-primary">
                 <FontAwesomeIcon icon={faEdit} className="me-2" />
@@ -128,7 +132,7 @@ const Profile: React.FC = () => {
               {stats.map((stat, index) => (
                 <div key={index} className="profile-stat-card">
                   <div className="profile-stat-icon">
-                    <FontAwesomeIcon icon={stat.icon} />
+                    <FontAwesomeIcon icon={stat.icon} className="text-primary" />
                   </div>
                   <div className="profile-stat-content">
                     <div className="profile-stat-value">{stat.value}</div>
@@ -289,7 +293,7 @@ const Profile: React.FC = () => {
                     {activities.map((activity, index) => (
                       <div key={index} className={`activity-item ${activity.type}`}>
                         <div className="activity-icon">
-                          <FontAwesomeIcon icon={activity.icon} />
+                          <FontAwesomeIcon icon={activity.icon} className={`text-${activity.type}`} />
                         </div>
                         <div className="activity-content">
                           <h6 className="mb-1">{activity.title}</h6>

@@ -7,6 +7,7 @@ import {
   faDownload,
   faFilter,
 } from '@fortawesome/free-solid-svg-icons';
+import '../../styles/theme.scss';
 
 interface TableData {
   id: number;

@@ -75,7 +75,8 @@ const SalesDashboard: React.FC = () => {
       {
         label: 'Number of Deals',
         data: [450, 320, 180, 120, 85, 65],
-        backgroundColor: 'rgba(75, 192, 192, 0.8)',
+        borderColor: 'var(--primary)',
+        backgroundColor: 'rgba(255, 159, 67, 0.2)',
       }
     ],
   };
@@ -104,14 +105,14 @@ const SalesDashboard: React.FC = () => {
       {
         label: 'Actual',
         data: [65000, 75000, 82000, 78000, 88000, 95000],
-        borderColor: 'rgb(75, 192, 192)',
-        tension: 0.4,
+        borderColor: 'var(--primary)',
+        backgroundColor: 'rgba(255, 159, 67, 0.2)',
       },
       {
         label: 'Forecast',
         data: [68000, 72000, 85000, 82000, 90000, 98000],
-        borderColor: 'rgb(255, 159, 64)',
-        tension: 0.4,
+        borderColor: 'var(--primary)',
+        backgroundColor: 'rgba(255, 159, 67, 0.2)',
         borderDash: [5, 5],
       }
     ],

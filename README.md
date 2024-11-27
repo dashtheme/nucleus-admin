@@ -1,14 +1,14 @@
-# QuantumBoard - Modern React Dashboard Theme
+# Nucleus Admin - Modern React Dashboard Theme
 
-A modern, responsive, and feature-rich dashboard theme built with React, TypeScript, and Vite. QuantumBoard provides a comprehensive set of components and features for building professional admin dashboards and web applications.
+A modern, responsive, and feature-rich dashboard theme built with React, TypeScript, and Vite. Nucleus Admin provides a comprehensive set of components and features for building professional admin dashboards and web applications.
 
-![QuantumBoard Dashboard](https://quantumboard.dashtheme.com/screenshot.png)
+![Nucleus Admin Dashboard](https://nucleusadmin.dashtheme.com/screenshot.png)
 
 A sleek and modern admin dashboard built with React, TypeScript, and Vite. Features a clean design, dark mode support, and comprehensive components for building powerful admin interfaces.
 
 ## 🔗 Demo
 
-Check out the live demo: [QuantumBoard Demo](https://quantumboard.dashtheme.com/)
+Check out the live demo: [Nucleus Admin Demo](https://nucleusadmin.dashtheme.com/)
 
 ## 🚀 Features
 
@@ -49,7 +49,7 @@ Check out the live demo: [QuantumBoard Demo](https://quantumboard.dashtheme.com/
 1. Clone the repository:
 ```bash
 git clone [repository-url]
-cd quantumboard
+cd nucleusadmin
 ```
 
 2. Install dependencies:
