@@ -212,33 +212,52 @@ const Profile: React.FC = () => {
                     Projects
                   </button>
                 </li>
+                <li className="nav-item">
+                  <button 
+                    className={`nav-link ${activeTab === 'activity' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('activity')}
+                  >
+                    Activity
+                  </button>
+                </li>
               </ul>
 
               <div className="tab-content mt-4">
                 {activeTab === 'overview' && (
                   <div>
-                    <h5 className="mb-4">Recent Activity</h5>
-                    {activities.map((activity, index) => (
-                      <div key={index} className={`activity-item ${activity.type}`}>
-                        <div className="activity-icon">
-                          <FontAwesomeIcon icon={activity.icon} />
+                    <h5 className="mb-4">Recent Projects</h5>
+                    <div className="row g-4">
+                      {projects.slice(0, 3).map((project, index) => (
+                        <div key={index} className="col-12 col-md-6 col-xl-4">
+                          <div className="project-card">
+                            <div className="d-flex justify-content-between align-items-center mb-2">
+                              <h6 className="mb-0">{project.title}</h6>
+                              <span className={`badge bg-${project.status === 'In Progress' ? 'warning' : 
+                                project.status === 'Review' ? 'info' : 'primary'}`}>
+                                {project.status}
+                              </span>
+                            </div>
+                            <p className="text-muted small mb-3">{project.description}</p>
+                            <div className="progress" style={{ height: '6px' }}>
+                              <div 
+                                className="progress-bar" 
+                                role="progressbar" 
+                                style={{ width: `${project.progress}%` }}
+                                aria-valuenow={project.progress} 
+                                aria-valuemin={0} 
+                                aria-valuemax={100}
+                              />
+                            </div>
+                          </div>
                         </div>
-                        <div className="activity-content">
-                          <h6 className="mb-1">{activity.title}</h6>
-                          <p className="text-muted mb-1">{activity.description}</p>
-                          <small className="text-muted">
-                            <FontAwesomeIcon icon={faClock} className="me-1" />
-                            {activity.time}
-                          </small>
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 )}
 
                 {activeTab === 'projects' && (
                   <div>
-                    <h5 className="mb-4">Current Projects</h5>
+                    <h5 className="mb-4">All Projects</h5>
                     {projects.map((project, index) => (
                       <div key={index} className="project-card">
                         <div className="d-flex justify-content-between align-items-center mb-2">
@@ -258,6 +277,27 @@ const Profile: React.FC = () => {
                             aria-valuemin={0} 
                             aria-valuemax={100}
                           />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {activeTab === 'activity' && (
+                  <div>
+                    <h5 className="mb-4">Recent Activity</h5>
+                    {activities.map((activity, index) => (
+                      <div key={index} className={`activity-item ${activity.type}`}>
+                        <div className="activity-icon">
+                          <FontAwesomeIcon icon={activity.icon} />
+                        </div>
+                        <div className="activity-content">
+                          <h6 className="mb-1">{activity.title}</h6>
+                          <p className="text-muted mb-1">{activity.description}</p>
+                          <small className="text-muted">
+                            <FontAwesomeIcon icon={faClock} className="me-1" />
+                            {activity.time}
+                          </small>
                         </div>
                       </div>
                     ))}
