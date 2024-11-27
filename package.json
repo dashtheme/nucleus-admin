@@ -24,6 +24,7 @@
     "chart.js": "^4.4.6",
     "formik": "^2.4.6",
     "react": "^18.3.1",
+    "react-bootstrap": "^2.10.6",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.0.1",
@@ -33,9 +34,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@types/node": "^20.11.16",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "@types/node": "^20.11.16",
     "@vitejs/plugin-react": "^4.3.3",
     "eslint": "^9.13.0",
     "eslint-plugin-react-hooks": "^5.0.0",

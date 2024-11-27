@@ -73,7 +73,7 @@ const Tables = () => {
 
       <div className="row">
         {/* Basic Table */}
-        <div className="col-12 mb-4">
+        <div className="col-12 col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title mb-0">Basic Table</h5>
@@ -86,8 +86,6 @@ const Tables = () => {
                       <th>Name</th>
                       <th>Position</th>
                       <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
                       <th>Salary</th>
                     </tr>
                   </thead>
@@ -97,7 +95,71 @@ const Tables = () => {
                         <td>{item.name}</td>
                         <td>{item.position}</td>
                         <td>{item.office}</td>
+                        <td>${item.salary.toLocaleString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Striped Table */}
+        <div className="col-12 col-lg-6 mb-4">
+          <div className="card">
+            <div className="card-header">
+              <h5 className="card-title mb-0">Striped Table</h5>
+            </div>
+            <div className="card-body">
+              <div className="table-responsive">
+                <table className="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map((item) => (
+                      <tr key={item.id}>
+                        <td>{item.name}</td>
+                        <td>{item.position}</td>
+                        <td>{item.office}</td>
                         <td>{item.age}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bordered Table */}
+        <div className="col-12 col-lg-6 mb-4">
+          <div className="card">
+            <div className="card-header">
+              <h5 className="card-title mb-0">Bordered Table</h5>
+            </div>
+            <div className="card-body">
+              <div className="table-responsive">
+                <table className="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Start Date</th>
+                      <th>Salary</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map((item) => (
+                      <tr key={item.id}>
+                        <td>{item.name}</td>
+                        <td>{item.position}</td>
                         <td>{item.startDate}</td>
                         <td>${item.salary.toLocaleString()}</td>
                       </tr>
@@ -109,8 +171,41 @@ const Tables = () => {
           </div>
         </div>
 
+        {/* Hoverable Table */}
+        <div className="col-12 col-lg-6 mb-4">
+          <div className="card">
+            <div className="card-header">
+              <h5 className="card-title mb-0">Hoverable Table</h5>
+            </div>
+            <div className="card-body">
+              <div className="table-responsive">
+                <table className="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map((item) => (
+                      <tr key={item.id}>
+                        <td>{item.name}</td>
+                        <td>{item.position}</td>
+                        <td>{item.office}</td>
+                        <td>{item.age}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Advanced Table */}
-        <div className="col-12">
+        <div className="col-12 mb-4">
           <div className="card">
             <div className="card-header">
               <div className="d-flex justify-content-between align-items-center">
@@ -151,7 +246,7 @@ const Tables = () => {
                   </div>
                 </div>
 
-                <table className="table table-hover">
+                <table className="table table-striped table-hover">
                   <thead>
                     <tr>
                       <th>
@@ -199,28 +294,34 @@ const Tables = () => {
                     ))}
                   </tbody>
                 </table>
-              </div>
 
-              <nav className="d-flex justify-content-between align-items-center">
-                <p className="mb-0">Showing 1 to 5 of 5 entries</p>
-                <ul className="pagination mb-0">
-                  <li className="page-item disabled">
-                    <a className="page-link" href="#" tabIndex={-1}>
-                      Previous
-                    </a>
-                  </li>
-                  <li className="page-item active">
-                    <a className="page-link" href="#">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item disabled">
-                    <a className="page-link" href="#">
-                      Next
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+                <div className="row mt-3">
+                  <div className="col-md-6">
+                    <p className="text-muted">Showing 1 to 5 of 5 entries</p>
+                  </div>
+                  <div className="col-md-6">
+                    <nav className="float-md-end">
+                      <ul className="pagination mb-0">
+                        <li className="page-item disabled">
+                          <a className="page-link" href="#" tabIndex={-1}>Previous</a>
+                        </li>
+                        <li className="page-item active">
+                          <a className="page-link" href="#">1</a>
+                        </li>
+                        <li className="page-item">
+                          <a className="page-link" href="#">2</a>
+                        </li>
+                        <li className="page-item">
+                          <a className="page-link" href="#">3</a>
+                        </li>
+                        <li className="page-item">
+                          <a className="page-link" href="#">Next</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

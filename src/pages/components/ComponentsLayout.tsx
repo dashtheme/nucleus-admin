@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Buttons from './samples/Buttons';
 import Cards from './samples/Cards';
 import Lists from './samples/Lists';
-import Tables from './samples/Tables';
+import Tables from '../../pages/tables/Tables';
 import Alerts from './samples/Alerts';
 import Spinners from './samples/Spinners';
 import Modals from './samples/Modals';

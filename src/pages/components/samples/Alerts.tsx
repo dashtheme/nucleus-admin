@@ -17,7 +17,7 @@ const Alerts: React.FC = () => {
 
       <div className="row">
         {/* Basic Alerts */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Basic Alerts</h5>
@@ -46,7 +46,7 @@ const Alerts: React.FC = () => {
         </div>
 
         {/* Alerts with Icons */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Alerts with Icons</h5>
@@ -81,7 +81,7 @@ const Alerts: React.FC = () => {
         </div>
 
         {/* Dismissible Alerts */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Dismissible Alerts</h5>
@@ -100,7 +100,7 @@ const Alerts: React.FC = () => {
         </div>
 
         {/* Additional Content */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Additional Content</h5>
@@ -123,7 +123,7 @@ const Alerts: React.FC = () => {
         </div>
 
         {/* Custom Styled Alerts */}
-        <div className="col-12">
+        <div className="col-12 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Custom Styled Alerts</h5>

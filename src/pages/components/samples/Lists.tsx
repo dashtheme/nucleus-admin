@@ -17,43 +17,43 @@ const Lists: React.FC = () => {
 
       <div className="row">
         {/* Basic List */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Basic List</h5>
             </div>
             <div className="card-body">
               <ul className="list-group">
-                <li className="list-group-item">First item</li>
-                <li className="list-group-item">Second item</li>
-                <li className="list-group-item">Third item</li>
-                <li className="list-group-item">Fourth item</li>
-                <li className="list-group-item">Fifth item</li>
+                <li className="list-group-item list-group-item-action">First item</li>
+                <li className="list-group-item list-group-item-action">Second item</li>
+                <li className="list-group-item list-group-item-action">Third item</li>
+                <li className="list-group-item list-group-item-action">Fourth item</li>
+                <li className="list-group-item list-group-item-action">Fifth item</li>
               </ul>
             </div>
           </div>
         </div>
 
         {/* Active Items List */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Active and Disabled Items</h5>
             </div>
             <div className="card-body">
               <ul className="list-group">
-                <li className="list-group-item active">Active item</li>
-                <li className="list-group-item">Regular item</li>
-                <li className="list-group-item disabled">Disabled item</li>
-                <li className="list-group-item">Regular item</li>
-                <li className="list-group-item">Regular item</li>
+                <li className="list-group-item list-group-item-action active">Active item</li>
+                <li className="list-group-item list-group-item-action">Regular item</li>
+                <li className="list-group-item list-group-item-action disabled">Disabled item</li>
+                <li className="list-group-item list-group-item-action">Regular item</li>
+                <li className="list-group-item list-group-item-action">Regular item</li>
               </ul>
             </div>
           </div>
         </div>
 
         {/* Links and Buttons List */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Links and Buttons</h5>
@@ -81,54 +81,54 @@ const Lists: React.FC = () => {
         </div>
 
         {/* Contextual Classes */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Contextual Classes</h5>
             </div>
             <div className="card-body">
               <ul className="list-group">
-                <li className="list-group-item list-group-item-primary">Primary item</li>
-                <li className="list-group-item list-group-item-secondary">Secondary item</li>
-                <li className="list-group-item list-group-item-success">Success item</li>
-                <li className="list-group-item list-group-item-danger">Danger item</li>
-                <li className="list-group-item list-group-item-warning">Warning item</li>
+                <li className="list-group-item list-group-item-primary">Primary list item</li>
+                <li className="list-group-item list-group-item-action">Regular list item</li>
+                <li className="list-group-item list-group-item-primary">Primary list item</li>
+                <li className="list-group-item list-group-item-action">Regular list item</li>
+                <li className="list-group-item list-group-item-primary">Primary list item</li>
               </ul>
             </div>
           </div>
         </div>
 
         {/* Custom Content */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Custom Content</h5>
             </div>
             <div className="card-body">
               <div className="list-group">
-                <div className="list-group-item">
+                <a href="#" className="list-group-item list-group-item-action active">
                   <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">List group item heading</h5>
                     <small>3 days ago</small>
                   </div>
                   <p className="mb-1">Some placeholder content in a paragraph.</p>
                   <small>And some small print.</small>
-                </div>
-                <div className="list-group-item">
+                </a>
+                <a href="#" className="list-group-item list-group-item-action">
                   <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">List group item heading</h5>
                     <small>5 days ago</small>
                   </div>
                   <p className="mb-1">Some placeholder content in a paragraph.</p>
                   <small>And some small print.</small>
-                </div>
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         {/* Icon List */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Icon List</h5>
@@ -157,7 +157,7 @@ const Lists: React.FC = () => {
         </div>
 
         {/* Badge List */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Badge List</h5>

@@ -17,7 +17,7 @@ const Cards: React.FC = () => {
 
       <div className="row">
         {/* Basic Cards */}
-        <div className="col-lg-4">
+        <div className="col-lg-4 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Basic Card</h5>
@@ -32,7 +32,7 @@ const Cards: React.FC = () => {
         </div>
 
         {/* Image Card */}
-        <div className="col-lg-4">
+        <div className="col-lg-4 mb-4">
           <div className="card">
             <img 
               src="https://via.placeholder.com/350x200" 
@@ -50,7 +50,7 @@ const Cards: React.FC = () => {
         </div>
 
         {/* Icon Stats Card */}
-        <div className="col-lg-4">
+        <div className="col-lg-4 mb-4">
           <div className="card bg-primary text-white">
             <div className="card-body">
               <div className="d-flex align-items-center">
@@ -67,7 +67,7 @@ const Cards: React.FC = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="col-lg-3">
+        <div className="col-lg-3 mb-4">
           <div className="card text-center">
             <div className="card-body">
               <div className="feature-icon mb-3">
@@ -79,7 +79,7 @@ const Cards: React.FC = () => {
           </div>
         </div>
 
-        <div className="col-lg-3">
+        <div className="col-lg-3 mb-4">
           <div className="card text-center">
             <div className="card-body">
               <div className="feature-icon mb-3">
@@ -91,7 +91,7 @@ const Cards: React.FC = () => {
           </div>
         </div>
 
-        <div className="col-lg-3">
+        <div className="col-lg-3 mb-4">
           <div className="card text-center">
             <div className="card-body">
               <div className="feature-icon mb-3">
@@ -104,7 +104,7 @@ const Cards: React.FC = () => {
         </div>
 
         {/* List Group Card */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Card with List Group</h5>
@@ -118,7 +118,7 @@ const Cards: React.FC = () => {
         </div>
 
         {/* Footer Card */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Card with Footer</h5>

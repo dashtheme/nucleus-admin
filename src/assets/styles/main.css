@@ -849,3 +849,23 @@ html {
     display: none;
   }
 }
+
+/* List Group Overrides */
+.list-group-item.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.list-group-item-primary {
+  color: var(--primary-dark);
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.list-group-item-action:hover {
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.list-group-item-action.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}

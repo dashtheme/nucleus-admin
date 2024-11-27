@@ -6,358 +6,316 @@ import {
   faTimesCircle,
   faCheckCircle
 } from '@fortawesome/free-solid-svg-icons';
+import { Modal, Button, Form } from 'react-bootstrap';
 
 const Modals: React.FC = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [modalContent, setModalContent] = useState({
+  const [showBasicModal, setShowBasicModal] = useState(false);
+  const [showScrollingModal, setShowScrollingModal] = useState(false);
+  const [showCenteredModal, setShowCenteredModal] = useState(false);
+  const [showXLModal, setShowXLModal] = useState(false);
+  const [showLGModal, setShowLGModal] = useState(false);
+  const [showSMModal, setShowSMModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+  const [showStateModal, setShowStateModal] = useState(false);
+  const [modalState, setModalState] = useState({
     title: '',
     content: '',
-    size: '',
-    type: ''
+    variant: ''
   });
 
-  const handleShowModal = (
-    title: string,
-    content: string,
-    size: string = '',
-    type: string = ''
-  ) => {
-    setModalContent({ title, content, size, type });
-    setShowModal(true);
+  // Long content for scrolling modal
+  const longContent = Array(20).fill('This is some sample content for the scrolling modal. ').join('');
+
+  const handleStateModal = (title: string, content: string, variant: string) => {
+    setModalState({ title, content, variant });
+    setShowStateModal(true);
   };
 
   return (
     <div className="components-page">
       <div className="page-header">
-        <h1>Modals</h1>
+        <h1 className="h3 mb-3">Modals</h1>
         <p className="lead">Examples of modal dialogs and variations</p>
       </div>
 
       <div className="row">
         {/* Basic Modals */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
-              <h5 className="card-title">Basic Modals</h5>
+              <h5 className="card-title mb-0">Basic Modals</h5>
             </div>
             <div className="card-body">
-              <button
-                type="button"
-                className="btn btn-primary me-2 mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#basicModal"
-              >
+              <Button variant="primary" className="me-2 mb-2" onClick={() => setShowBasicModal(true)}>
                 Basic Modal
-              </button>
-              <button
-                type="button"
-                className="btn btn-info me-2 mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#scrollingModal"
-              >
+              </Button>
+              <Button variant="info" className="me-2 mb-2" onClick={() => setShowScrollingModal(true)}>
                 Scrolling Modal
-              </button>
-              <button
-                type="button"
-                className="btn btn-success me-2 mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#centeredModal"
-              >
+              </Button>
+              <Button variant="success" className="me-2 mb-2" onClick={() => setShowCenteredModal(true)}>
                 Vertically Centered
-              </button>
+              </Button>
             </div>
           </div>
         </div>
 
         {/* Modal Sizes */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
-              <h5 className="card-title">Modal Sizes</h5>
+              <h5 className="card-title mb-0">Modal Sizes</h5>
             </div>
             <div className="card-body">
-              <button
-                type="button"
-                className="btn btn-primary me-2 mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#xlModal"
-              >
+              <Button variant="primary" className="me-2 mb-2" onClick={() => setShowXLModal(true)}>
                 Extra Large Modal
-              </button>
-              <button
-                type="button"
-                className="btn btn-secondary me-2 mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#lgModal"
-              >
+              </Button>
+              <Button variant="secondary" className="me-2 mb-2" onClick={() => setShowLGModal(true)}>
                 Large Modal
-              </button>
-              <button
-                type="button"
-                className="btn btn-success me-2 mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#smModal"
-              >
+              </Button>
+              <Button variant="success" className="me-2 mb-2" onClick={() => setShowSMModal(true)}>
                 Small Modal
-              </button>
+              </Button>
             </div>
           </div>
         </div>
 
         {/* Modal States */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
-              <h5 className="card-title">Modal States</h5>
+              <h5 className="card-title mb-0">Modal States</h5>
             </div>
             <div className="card-body">
-              <button
-                type="button"
-                className="btn btn-success me-2 mb-2"
-                onClick={() =>
-                  handleShowModal(
-                    'Success',
-                    'Operation completed successfully!',
-                    '',
-                    'success'
-                  )
-                }
+              <Button
+                variant="success"
+                className="me-2 mb-2"
+                onClick={() => handleStateModal('Success', 'Operation completed successfully!', 'success')}
               >
                 <FontAwesomeIcon icon={faCheckCircle} className="me-2" />
                 Success Modal
-              </button>
-              <button
-                type="button"
-                className="btn btn-danger me-2 mb-2"
-                onClick={() =>
-                  handleShowModal(
-                    'Error',
-                    'An error occurred during the operation.',
-                    '',
-                    'error'
-                  )
-                }
+              </Button>
+              <Button
+                variant="danger"
+                className="me-2 mb-2"
+                onClick={() => handleStateModal('Error', 'An error occurred during the operation.', 'danger')}
               >
                 <FontAwesomeIcon icon={faTimesCircle} className="me-2" />
                 Error Modal
-              </button>
-              <button
-                type="button"
-                className="btn btn-warning me-2 mb-2"
-                onClick={() =>
-                  handleShowModal(
-                    'Warning',
-                    'Are you sure you want to proceed?',
-                    '',
-                    'warning'
-                  )
-                }
+              </Button>
+              <Button
+                variant="warning"
+                className="me-2 mb-2"
+                onClick={() => handleStateModal('Warning', 'Are you sure you want to proceed?', 'warning')}
               >
                 <FontAwesomeIcon icon={faExclamationTriangle} className="me-2" />
                 Warning Modal
-              </button>
-              <button
-                type="button"
-                className="btn btn-info me-2 mb-2"
-                onClick={() =>
-                  handleShowModal(
-                    'Information',
-                    'Here is some important information.',
-                    '',
-                    'info'
-                  )
-                }
+              </Button>
+              <Button
+                variant="info"
+                className="me-2 mb-2"
+                onClick={() => handleStateModal('Information', 'Here is some important information.', 'info')}
               >
                 <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                 Info Modal
-              </button>
+              </Button>
             </div>
           </div>
         </div>
 
         {/* Form Modals */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
-              <h5 className="card-title">Form Modals</h5>
+              <h5 className="card-title mb-0">Form Modals</h5>
             </div>
             <div className="card-body">
-              <button
-                type="button"
-                className="btn btn-primary me-2 mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#loginModal"
-              >
+              <Button variant="primary" className="me-2 mb-2" onClick={() => setShowLoginModal(true)}>
                 Login Modal
-              </button>
-              <button
-                type="button"
-                className="btn btn-success me-2 mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#signupModal"
-              >
+              </Button>
+              <Button variant="success" className="me-2 mb-2" onClick={() => setShowSignupModal(true)}>
                 Signup Modal
-              </button>
-              <button
-                type="button"
-                className="btn btn-info me-2 mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#contactModal"
-              >
-                Contact Form
-              </button>
+              </Button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Basic Modal */}
-      <div className="modal fade" id="basicModal" tabIndex={-1}>
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Basic Modal</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div className="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Modal show={showBasicModal} onHide={() => setShowBasicModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Basic Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>This is a basic modal dialog window.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowBasicModal(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => setShowBasicModal(false)}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       {/* Scrolling Modal */}
-      <div className="modal fade" id="scrollingModal" tabIndex={-1}>
-        <div className="modal-dialog modal-dialog-scrollable">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Scrolling Modal</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div className="modal-body">
-              {/* Add lots of content here */}
-              {Array(20).fill(0).map((_, i) => (
-                <p key={i}>
-                  This is some placeholder content to show the scrolling behavior for modals.
-                  We use repeated line breaks to demonstrate how content can overflow modal bodies.
-                </p>
-              ))}
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Modal show={showScrollingModal} onHide={() => setShowScrollingModal(false)} scrollable>
+        <Modal.Header closeButton>
+          <Modal.Title>Scrolling Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>{longContent}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowScrollingModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       {/* Centered Modal */}
-      <div className="modal fade" id="centeredModal" tabIndex={-1}>
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Centered Modal</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div className="modal-body">
-              <p>This modal is vertically centered in the viewport.</p>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Modal show={showCenteredModal} onHide={() => setShowCenteredModal(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Centered Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>This modal is vertically centered in the viewport.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowCenteredModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
-      {/* Extra Large Modal */}
-      <div className="modal fade" id="xlModal" tabIndex={-1}>
-        <div className="modal-dialog modal-xl">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Extra Large Modal</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div className="modal-body">
-              <p>This is an extra large modal.</p>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* XL Modal */}
+      <Modal show={showXLModal} onHide={() => setShowXLModal(false)} size="xl">
+        <Modal.Header closeButton>
+          <Modal.Title>Extra Large Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>This is an extra large modal dialog.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowXLModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* LG Modal */}
+      <Modal show={showLGModal} onHide={() => setShowLGModal(false)} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>Large Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>This is a large modal dialog.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowLGModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* SM Modal */}
+      <Modal show={showSMModal} onHide={() => setShowSMModal(false)} size="sm">
+        <Modal.Header closeButton>
+          <Modal.Title>Small Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>This is a small modal dialog.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowSMModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* State Modal */}
+      <Modal show={showStateModal} onHide={() => setShowStateModal(false)}>
+        <Modal.Header className={`bg-${modalState.variant} text-white`} closeButton>
+          <Modal.Title>{modalState.title}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>{modalState.content}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant={modalState.variant} onClick={() => setShowStateModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       {/* Login Modal */}
-      <div className="modal fade" id="loginModal" tabIndex={-1}>
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Login</h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div className="modal-body">
-              <form>
-                <div className="mb-3">
-                  <label htmlFor="email" className="form-label">Email address</label>
-                  <input type="email" className="form-control" id="email" />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">Password</label>
-                  <input type="password" className="form-control" id="password" />
-                </div>
-                <div className="mb-3 form-check">
-                  <input type="checkbox" className="form-check-input" id="rememberMe" />
-                  <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
-                </div>
-              </form>
-            </div>
-            <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" className="btn btn-primary">Login</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Modal show={showLoginModal} onHide={() => setShowLoginModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Check type="checkbox" label="Remember me" />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowLoginModal(false)}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={() => setShowLoginModal(false)}>
+            Login
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
-      {/* Dynamic Modal */}
-      {showModal && (
-        <div className={`modal fade show`} style={{ display: 'block' }} tabIndex={-1}>
-          <div className={`modal-dialog ${modalContent.size}`}>
-            <div className="modal-content">
-              <div className={`modal-header ${modalContent.type ? `bg-${modalContent.type} text-white` : ''}`}>
-                <h5 className="modal-title">{modalContent.title}</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setShowModal(false)}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <p>{modalContent.content}</p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  onClick={() => setShowModal(false)}
-                >
-                  Close
-                </button>
-                {modalContent.type === 'warning' && (
-                  <button type="button" className="btn btn-warning">Proceed</button>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {showModal && <div className="modal-backdrop fade show"></div>}
+      {/* Signup Modal */}
+      <Modal show={showSignupModal} onHide={() => setShowSignupModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sign Up</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Full Name</Form.Label>
+              <Form.Control type="text" placeholder="Enter your name" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Confirm Password</Form.Label>
+              <Form.Control type="password" placeholder="Confirm password" />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Check type="checkbox" label="I agree to the terms and conditions" />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowSignupModal(false)}>
+            Cancel
+          </Button>
+          <Button variant="success" onClick={() => setShowSignupModal(false)}>
+            Sign Up
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

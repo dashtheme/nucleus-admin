@@ -64,7 +64,7 @@
 
 .profile-user-info {
   padding: 0 2rem 2rem;
-  margin-top: 5.5rem;
+  margin-top: 7rem;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
@@ -74,7 +74,7 @@
 .profile-avatar {
   position: absolute;
   left: 2rem;
-  bottom: calc(100% - 75px);
+  top: -180px;
   z-index: 2;
   margin-bottom: 1rem;
 }
@@ -149,31 +149,59 @@
   line-height: 1.6;
 }
 
+/* Profile Stats */
 .profile-stats {
-  display: flex;
-  gap: 3.5rem;
-  margin: 2rem 0;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--bs-gray-200);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  width: 100%;
 }
 
-.profile-stat-item {
+.profile-stat-card {
+  background: linear-gradient(145deg, #ffffff, #f5f7fa);
+  border-radius: 1rem;
+  padding: 1.5rem;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.profile-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.profile-stat-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  color: white;
+  font-size: 1.25rem;
+}
+
+.profile-stat-content {
+  flex: 1;
 }
 
 .profile-stat-value {
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--bs-gray-900);
-  line-height: 1.2;
+  font-weight: 600;
+  color: #2c3e50;
   margin-bottom: 0.25rem;
+  line-height: 1;
 }
 
 .profile-stat-label {
+  color: #6c757d;
   font-size: 0.875rem;
-  color: var(--bs-gray-600);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -337,29 +365,131 @@
   font-size: 0.875rem;
 }
 
-/* Tabs Content */
-.nav-tabs {
-  border: none;
-  padding: 0 1rem;
+/* Profile Tabs */
+.profile-tabs {
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 2rem 0;
+  list-style: none;
+  border-bottom: 2px solid #e9ecef;
 }
 
-.nav-tabs .nav-link {
-  border: none;
-  color: #6c757d;
+.profile-tab {
   padding: 1rem 1.5rem;
   font-weight: 500;
-  transition: all 0.3s;
+  color: #6c757d;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
 }
 
-.nav-tabs .nav-link:hover {
-  border: none;
-  color: var(--primary-color);
+.profile-tab:hover {
+  color: #2193b0;
 }
 
-.nav-tabs .nav-link.active {
-  border: none;
-  color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
+.profile-tab.active {
+  color: #2193b0;
+  font-weight: 600;
+}
+
+.profile-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #2193b0, #6dd5ed);
+  border-radius: 2px 2px 0 0;
+}
+
+.profile-tab-content {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 1rem;
+}
+
+/* Activity Tab */
+.profile-activity {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(145deg, #ffffff, #f5f7fa);
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.profile-activity-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+}
+
+.activity-icon.bg-success {
+  background: linear-gradient(135deg, #28a745, #5cb85c);
+}
+
+.activity-icon.bg-info {
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+}
+
+.activity-icon.bg-warning {
+  background: linear-gradient(135deg, #f1c40f, #f39c12);
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-content h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.25rem;
+}
+
+.activity-content p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.activity-content small {
+  color: #95a5a6;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.activity-content small svg {
+  font-size: 0.75rem;
 }
 
 /* Skills */

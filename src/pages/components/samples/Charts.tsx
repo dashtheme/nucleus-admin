@@ -134,7 +134,7 @@ const Charts: React.FC = () => {
 
       <div className="row">
         {/* Line Chart */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Line Chart</h5>
@@ -146,7 +146,7 @@ const Charts: React.FC = () => {
         </div>
 
         {/* Bar Chart */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Bar Chart</h5>
@@ -158,7 +158,7 @@ const Charts: React.FC = () => {
         </div>
 
         {/* Doughnut Chart */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Doughnut Chart</h5>
@@ -172,7 +172,7 @@ const Charts: React.FC = () => {
         </div>
 
         {/* Pie Chart */}
-        <div className="col-lg-6">
+        <div className="col-lg-6 mb-4">
           <div className="card">
             <div className="card-header">
               <h5 className="card-title">Pie Chart</h5>
