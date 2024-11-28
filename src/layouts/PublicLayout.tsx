@@ -25,7 +25,7 @@ const PublicLayout: React.FC = () => {
           position: 'relative',
           zIndex: 1000
         }}>
-          <Sidebar theme='light'/>
+          <Sidebar />
         </div>
         <div style={{ 
           flex: 1, 
