@@ -29,10 +29,6 @@ interface MenuItem {
   subItems?: MenuItem[];
 }
 
-interface SidebarProps {
-  theme?: 'light' | 'dark';
-}
-
 const menuItems: MenuItem[] = [
   {
     title: 'Dashboards',
@@ -95,7 +91,7 @@ const menuItems: MenuItem[] = [
   }
 ];
 
-const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
+const Sidebar: React.FC = () => {
   const location = useLocation();
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
@@ -183,7 +179,7 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
     );
   };
 
-  const renderSubMenu = (items: MenuItem[]): JSX.Element[] => {
+  const renderSubMenu = (items: MenuItem[], level: number = 0): JSX.Element[] => {
     return items.map(item => (
       <li key={item.title}>
         {item.path ? (
@@ -236,7 +232,7 @@ const Sidebar: React.FC<SidebarProps> = ({ theme = 'dark' }) => {
         )}
         {item.subItems && item.subItems.length > 0 && (
           <ul className={`nav flex-column ${expandedItems.includes(item.title) ? 'd-block' : 'd-none'}`}>
-            {renderSubMenu(item.subItems)}
+            {renderSubMenu(item.subItems, level + 1)}
           </ul>
         )}
       </li>

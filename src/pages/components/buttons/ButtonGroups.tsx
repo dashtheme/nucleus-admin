@@ -8,7 +8,6 @@ import {
   faItalic, 
   faUnderline,
   faFilter,
-  faSort,
   faSortUp,
   faSortDown
 } from '@fortawesome/free-solid-svg-icons';

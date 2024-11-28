@@ -12,7 +12,6 @@ import {
   faCheckCircle,
   faExclamationCircle,
   faTasks,
-  faArrowLeft
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
@@ -22,11 +21,9 @@ import {
 import { images } from '../../constants/images';
 import '../../assets/styles/profile.css';
 import '../../styles/theme.scss';
-import { useNavigate } from 'react-router-dom';
 
 const Profile: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
-  const navigate = useNavigate();
 
   const stats = [
     { title: 'Projects', value: '25', icon: faBriefcase },
