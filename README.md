@@ -2,13 +2,13 @@
 
 A modern, responsive, and feature-rich dashboard theme built with React, TypeScript, and Vite. Nucleus Admin provides a comprehensive set of components and features for building professional admin dashboards and web applications.
 
-![Nucleus Admin Dashboard](https://nucleusadmin.dashtheme.com/screenshot.png)
+![Nucleus Admin Dashboard](https://nucleus-admin.dashtheme.com/screenshot.png)
 
 A sleek and modern admin dashboard built with React, TypeScript, and Vite. Features a clean design, dark mode support, and comprehensive components for building powerful admin interfaces.
 
 ## 🔗 Demo
 
-Check out the live demo: [Nucleus Admin Demo](https://nucleusadmin.dashtheme.com/)
+Check out the live demo: [Nucleus Admin Demo](https://nucleus-admin.dashtheme.com/)
 
 ## 🚀 Features
 
@@ -35,7 +35,7 @@ Check out the live demo: [Nucleus Admin Demo](https://nucleusadmin.dashtheme.com
   - React Query for efficient data fetching
 
 - 🎨 Modern and Clean Design
-- 🌙 Dark Mode Support
+- 🌙 Dark Mode Support (coming soon)
 - 📱 Fully Responsive
 - 🔒 Authentication Pages (Login/Register)
 - 📊 Interactive Dashboard
